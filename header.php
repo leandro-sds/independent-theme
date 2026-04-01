@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+  <meta charset="<?php bloginfo('charset'); ?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <?php wp_head(); ?>
+</head>
+<body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
+
+<header class="site-header" role="banner">
+  <div class="wrap header-wrap">
+    <div class="header-top">
+      <div class="branding">
+        <?php if ( has_custom_logo() ) : ?>
+          <div class="logo">
+            <?php the_custom_logo(); ?>
+          </div>
+        <?php endif; ?>
+
+        <div class="site-title">
+          <p class="site-name">
+            <a href="<?php echo esc_url( home_url('/') ); ?>">
+              <?php echo esc_html( get_bloginfo('name') ); ?>
+            </a>
+          </p>
+          <?php $desc = get_bloginfo('description'); if ( $desc ) : ?>
+            <p class="site-description"><?php echo esc_html( $desc ); ?></p>
+          <?php endif; ?>
+        </div>
+      </div>
+
+      <div class="header-actions" role="group" aria-label="<?php esc_attr_e('Ações do cabeçalho', 'independent-theme'); ?>">
+
+        <?php if ( get_theme_mod( 'independent_header_show_search', 1 ) ) : ?>
+        <button
+          class="search-toggle"
+          type="button"
+          aria-controls="header-search"
+          aria-expanded="false"
+          aria-label="<?php esc_attr_e('Abrir campo de busca', 'independent-theme'); ?>"
+        >
+          <span aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+            </svg>
+          </span>
+          <span class="search-toggle-text"><?php esc_html_e('Pesquisar', 'independent-theme'); ?></span>
+        </button>
+
+        <div
+          class="header-search"
+          id="header-search"
+          aria-label="<?php esc_attr_e('Pesquisar no site', 'independent-theme'); ?>"
+        >
+          <?php get_search_form(); ?>
+        </div>
+        <?php endif; ?>
+
+<button
+  class="menu-toggle"
+  type="button"
+  aria-controls="main-menu"
+  aria-expanded="false"
+  aria-hidden="true"
+  tabindex="-1"
+  aria-label="<?php esc_attr_e('Abrir menu de navegação', 'independent-theme'); ?>"
+>
+          <span class="menu-toggle-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+              <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </span>
+          <span class="menu-toggle-text"><?php esc_html_e('Menu', 'independent-theme'); ?></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="primary-nav" role="navigation" aria-label="<?php esc_attr_e('Menu principal', 'independent-theme'); ?>">
+      <?php
+        wp_nav_menu([
+          'theme_location' => 'main-menu',
+          'menu_class'     => 'menu',
+          'container'      => false,
+          'fallback_cb'    => 'wp_page_menu',
+          'items_wrap'     => '<ul id="main-menu" class="%2$s" role="menubar">%3$s</ul>',
+        ]);
+      ?>
+    </nav>
+  </div>
+</header>

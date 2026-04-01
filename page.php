@@ -1,0 +1,63 @@
+<?php get_header(); ?>
+
+<div class="site-content"><div class="container">
+  <main id="primary" role="main">
+    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+      <article id="page-<?php the_ID(); ?>" <?php post_class(); ?>>
+        <header class="page-header">
+          <h1 class="entry-title"><?php the_title(); ?></h1>
+        </header>
+
+        <div class="page-content">
+          <?php the_content(); ?>
+        </div>
+
+        <?php
+        // Paginação de subpáginas
+        $paged = get_query_var('paged') ? absint( get_query_var('paged') ) : 1;
+
+        $child_pages_query = new WP_Query([
+          'post_type'      => 'page',
+          'posts_per_page' => 10,
+          'paged'          => $paged,
+          'post_parent'    => get_the_ID(),
+          'orderby'        => 'date',
+          'order'          => 'DESC',
+          'no_found_rows'  => false,
+        ]);
+
+        if ( $child_pages_query->have_posts() ) :
+        ?>
+          <section class="child-pages" aria-label="<?php esc_attr_e('Conteúdo relacionado', 'independent-theme'); ?>">
+            <ul class="child-page-list">
+              <?php while ( $child_pages_query->have_posts() ) : $child_pages_query->the_post(); ?>
+                <li>
+                  <a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a>
+                </li>
+              <?php endwhile; ?>
+            </ul>
+
+            <?php
+            echo paginate_links([
+              'total'     => $child_pages_query->max_num_pages,
+              'current'   => $paged,
+              'mid_size'  => 2,
+              'prev_text' => __('« Anterior', 'independent-theme'),
+              'next_text' => __('Próximo »', 'independent-theme'),
+            ]);
+            ?>
+          </section>
+        <?php
+          wp_reset_postdata();
+        endif;
+        ?>
+
+        <?php independent_back_link(); ?>
+      </article>
+    <?php endwhile; endif; ?>
+  </main>
+
+  <?php get_sidebar(); ?>
+</div></div>
+
+<?php get_footer(); ?>

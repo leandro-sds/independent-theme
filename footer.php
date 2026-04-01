@@ -1,0 +1,92 @@
+<footer role="contentinfo">
+  <div class="container">
+
+    <?php if ( is_active_sidebar('footer-1') ) : ?>
+      <div class="footer-widgets" role="complementary" aria-label="<?php esc_attr_e('Rodapé', 'independent-theme'); ?>">
+        <?php dynamic_sidebar('footer-1'); ?>
+      </div>
+    <?php endif; ?>
+
+    <?php
+      $whatsapp  = get_theme_mod('independent_whatsapp_url');
+      $facebook  = get_theme_mod('independent_facebook_url');
+      $instagram = get_theme_mod('independent_instagram_url');
+      $youtube   = get_theme_mod('independent_youtube_url');
+
+      $whatsapp_digits = $whatsapp ? preg_replace('/\D/', '', $whatsapp) : '';
+      $whatsapp_link   = $whatsapp_digits ? 'https://wa.me/' . $whatsapp_digits : '';
+    ?>
+
+    <?php if ( $whatsapp_link || $facebook || $instagram || $youtube ) : ?>
+      <div class="social-icons" role="navigation" aria-label="<?php esc_attr_e('Redes sociais', 'independent-theme'); ?>">
+        <h3 class="social-title"><?php esc_html_e('Redes Sociais', 'independent-theme'); ?></h3>
+        <div class="social-links">
+          <?php if ( $whatsapp_link ) : ?>
+            <a href="<?php echo esc_url( $whatsapp_link ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('WhatsApp', 'independent-theme'); ?>">
+              <span class="social-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                  <path d="M20.5 3.5A11 11 0 0 0 3.7 17.7L3 21l3.4-.7A11 11 0 0 0 20.5 3.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                  <path d="M8.3 7.9c-.2-.4-.4-.4-.6-.4H7c-.2 0-.4.1-.5.3-.2.2-.7.7-.7 1.8 0 1 .7 2 0 2.1.1.1 1.4 2.2 3.5 3 .5.2.9.4 1.2.5.5.2.9.2 1.2.2.4 0 1.3-.5 1.5-1 .2-.5.2-.9.1-1-.1-.1-.2-.2-.4-.3l-1.1-.5c-.2-.1-.4-.1-.6.1l-.4.5c-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.7-1.5-2-.2-.3 0-.4.1-.5l.3-.3c.1-.1.2-.2.2-.3.1-.1.1-.3 0-.4l-.5-1.1Z" fill="currentColor"/>
+                </svg>
+              </span>
+              <span class="sr-only">WhatsApp</span>
+            </a>
+          <?php endif; ?>
+
+          <?php if ( $facebook ) : ?>
+            <a href="<?php echo esc_url( $facebook ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Facebook', 'independent-theme'); ?>">
+              <span class="social-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                  <path d="M14 9h2V6h-2c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.1l.9-3H13v-2c0-.6.4-1 1-1Z" fill="currentColor"/>
+                </svg>
+              </span>
+              <span class="sr-only">Facebook</span>
+            </a>
+          <?php endif; ?>
+
+          <?php if ( $instagram ) : ?>
+            <a href="<?php echo esc_url( $instagram ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Instagram', 'independent-theme'); ?>">
+              <span class="social-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                  <path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                  <path d="M12 8.5A3.5 3.5 0 1 0 12 15.5 3.5 3.5 0 0 0 12 8.5Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                  <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <span class="sr-only">Instagram</span>
+            </a>
+          <?php endif; ?>
+
+          <?php if ( $youtube ) : ?>
+            <a href="<?php echo esc_url( $youtube ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('YouTube', 'independent-theme'); ?>">
+              <span class="social-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                  <path d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.8 4.6 12 4.6 12 4.6s-5.8 0-7.5.5A3 3 0 0 0 2.4 7.2 31.3 31.3 0 0 0 2 12a31.3 31.3 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.7.5 7.5.5 7.5.5s5.8 0 7.5-.5a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 22 12a31.3 31.3 0 0 0-.4-4.8Z" fill="currentColor"/>
+                  <path d="M10 15.5v-7l6 3.5-6 3.5Z" fill="#000"/>
+                </svg>
+              </span>
+              <span class="sr-only">YouTube</span>
+            </a>
+          <?php endif; ?>
+        </div>
+      </div>
+    <?php endif; ?>
+
+    <div class="site-info">
+      <?php
+        $founding_year = get_theme_mod( 'independent_founding_year', '' );
+        $current_year  = (int) gmdate( 'Y' );
+        if ( $founding_year && (int) $founding_year < $current_year ) {
+          $year_display = esc_html( $founding_year ) . '–' . $current_year;
+        } else {
+          $year_display = $current_year;
+        }
+      ?>
+      <p>&copy; <?php echo $year_display; ?> <?php echo esc_html( get_bloginfo('name') ); ?>. <?php esc_html_e('Todos os direitos reservados.', 'independent-theme'); ?></p>
+    </div>
+  </div>
+
+  <?php wp_footer(); ?>
+</footer>
+</body>
+</html>

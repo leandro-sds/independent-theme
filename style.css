@@ -1,0 +1,1953 @@
+/*
+Theme Name: Independent Theme
+Author: Leandro Souza
+Description: Tema moderno, responsivo e acessível com estilos visuais personalizáveis.
+Version: 2.1.0
+Requires at least: 6.5
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: independent-theme
+Tags: blog, news, one-column, two-columns, custom-logo, custom-menu, featured-images, accessibility-ready, responsive-layout
+*/
+
+/* Fontes via Google Fonts — Inter (sans) + Montserrat (display) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap');
+
+:root {
+  --primary-color: #273046;
+  --accent-color: #F6AD55;
+  --on-accent: #1a1200;
+  --bg-light: #F5F7FA;
+  --card-bg: #FFFFFF;
+  --link-color: #2B6CB0;
+  --font-main: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-title: var(--font-main);
+  --text-color: #1e2532;
+  --muted-text: #5a6476;
+  --border-color: #dde3ec;
+  --focus-ring: 3px solid var(--accent-color);
+  --logo-max-width: 220px;
+  --logo-max-height: 120px;
+  --logo-scale: 1;
+  --transition-fast: 0.22s ease;
+  --transition-slow: 0.5s ease;
+  --gold-color: #D4AF37;
+  --silver-color: #C0C0C0;
+  --rose-color: #E6C1C1;
+  --header-bg: var(--primary-color);
+  --header-fg: #ffffff;
+  --header-muted: rgba(255,255,255,0.78);
+  --header-border: rgba(255,255,255,0.14);
+  --header-title-color: #ffffff;
+  --header-input-bg: rgba(255,255,255,0.08);
+  --header-input-border: rgba(255,255,255,0.25);
+  /* Espaçamento global */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.75rem;
+  --space-lg: 2.75rem;
+  --space-xl: 4rem;
+  /* Largura de leitura confortável */
+  --prose-max: 72ch;
+  /* Raio de borda padrão */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}
+
+body {
+  font-family: var(--font-main);
+  font-size: 1rem;
+  line-height: 1.65;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-light);
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-slow), color var(--transition-slow);
+}
+
+
+
+/* Acessibilidade */
+.screen-reader-text, .sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed !important;
+  top: -200px !important;
+  left: 1rem !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  z-index: 10000;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 1rem !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 12px 18px !important;
+  background: var(--accent-color) !important;
+  color: var(--on-accent) !important;
+  border: 2px solid var(--on-accent) !important;
+  border-radius: 8px !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  text-decoration: none !important;
+  outline: var(--focus-ring) !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.site-header{
+  background-color: var(--header-bg);
+  color: var(--header-fg);
+  padding: 16px 0 12px;
+  border-bottom: 1px solid var(--header-border);
+  transition: background-color var(--transition-fast);
+}
+
+footer{
+  background-color: var(--header-bg);
+  color: var(--header-fg);
+  padding: 32px 0 20px;
+  transition: background-color var(--transition-fast);
+}
+
+/* Wrapper do conteúdo: ocupa toda a largura */
+.site-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: var(--bg-light);
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0;
+  padding: 0;
+}
+
+.wrap{
+  max-width:1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.header-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+  width:100%;
+}
+main {
+  flex: 3;
+  padding: var(--space-lg) var(--space-lg) var(--space-lg) var(--space-lg);
+  background-color: var(--card-bg);
+  min-width: 0;
+  transition: background-color var(--transition-fast);
+}
+
+aside {
+  flex: 1;
+  padding: var(--space-lg) var(--space-md);
+  background-color: var(--bg-light);
+  min-width: 240px;
+  transition: background-color var(--transition-fast);
+}
+
+article, .widget, .footer-widget {
+  background-color: var(--card-bg);
+  padding: var(--space-md) var(--space-md);
+  margin-bottom: var(--space-lg);
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
+  transition: box-shadow var(--transition-fast), background-color var(--transition-fast);
+}
+
+.branding {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1 1 auto;
+}
+
+.header-search-form{
+  display:flex;
+  align-items:stretch;
+  gap:6px;
+}
+
+.header-search-form .search-field{
+  height: 44px;
+  box-sizing: border-box;
+  padding: 0 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--header-input-border);
+  background: var(--header-input-bg);
+  color: var(--header-fg);
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  min-width: 220px;
+  max-width: 36vw;
+  line-height: 1;
+}
+
+.header-search-form .search-field::placeholder{
+  color: var(--header-muted);
+}
+
+.header-search-form .search-submit{
+  height: 44px;
+  box-sizing: border-box;
+  padding: 0 16px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: var(--accent-color);
+  color: var(--on-accent);
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: filter var(--transition-fast);
+}
+
+.header-search-form .search-submit:hover,
+.header-search-form .search-submit:focus-visible{
+  filter: brightness(1.08);
+}
+
+
+
+.logo img,
+img.custom-logo,
+.ls-logo {
+  /*
+    Acessibilidade: permite AUMENTAR visualmente a logo via Personalizador,
+    mesmo que a imagem original seja menor.
+    - Fallback declarado primeiro para browsers sem suporte a min().
+    - min() sobrescreve em browsers modernos, limitando ao viewport.
+    - Escala via --logo-scale permite upscaling sem trocar o arquivo.
+  */
+  /* Fallback para browsers sem suporte a min() */
+  width: calc(var(--logo-max-width) * var(--logo-scale)) !important;
+  height: auto !important;
+  max-width: 90vw !important;
+  max-height: calc(var(--logo-max-height) * var(--logo-scale)) !important;
+  /* Modernos: clamp seguro ao viewport */
+  max-width: min(calc(var(--logo-max-width) * var(--logo-scale)), 90vw) !important;
+  max-height: min(calc(var(--logo-max-height) * var(--logo-scale)), 35vh) !important;
+  object-fit: contain;
+  display: block;
+  transition: transform var(--transition-fast);
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+.site-title .site-name{
+  margin: 0;
+  font-family: var(--font-title);
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.site-title .site-name a{
+  color: var(--header-title-color);
+  text-decoration: none;
+}
+
+.site-title .site-name a:hover,
+.site-title .site-name a:focus-visible{
+  text-decoration: underline;
+}
+
+.site-title .site-description{
+  margin: 2px 0 0;
+  font-size: 0.95rem;
+  color: var(--header-muted);
+}
+
+/* Navegação */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  color: var(--header-fg);
+  cursor: pointer;
+  padding: 10px 12px;
+  border-radius: 8px;
+
+}
+
+.menu-toggle:hover {
+  background: rgba(255,255,255,0.14);
+}
+
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 10px;
+}
+
+nav ul li a {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  color: rgba(255,255,255,0.90);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+nav ul li a:hover {
+  background: rgba(255,255,255,0.14);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Item ativo do menu */
+nav ul li.current-menu-item > a,
+nav ul li.current_page_item > a,
+nav ul li.current-menu-ancestor > a {
+  color: var(--accent-color);
+  background: rgba(255,255,255,0.10);
+  font-weight: 700;
+  border-bottom: 2px solid var(--accent-color);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+/* Ícones sociais */
+.social-icons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.social-icons a {
+  color: var(--header-fg);
+  font-size: 20px;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.social-icons a:hover,
+
+
+/* Subpáginas */
+.child-pages {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border-color);
+}
+
+.child-pages-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 16px;
+  font-family: var(--font-title);
+}
+
+.child-page-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.child-page-list li a {
+  display: block;
+  padding: 16px 20px;
+  background-color: var(--bg-light);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  font-weight: 600;
+  transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), color var(--transition-fast);
+}
+
+.child-page-list li.is-current a {
+  border-left: 4px solid var(--accent-color);
+  padding-left: 16px;
+}
+
+.child-page-list li a:hover,
+.child-page-list li a:focus-visible {
+  background-color: var(--accent-color);
+  color: var(--on-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  border-color: var(--accent-color);
+  text-decoration: none;
+}
+
+/* Paginação */
+.pagination {
+  margin-top: var(--space-lg);
+  text-align: center;
+}
+
+.pagination .page-numbers {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 3px;
+  padding: 9px 14px;
+  min-width: 42px;
+  background-color: var(--card-bg);
+  color: var(--link-color);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.pagination .page-numbers:hover,
+.pagination .current {
+  background-color: var(--accent-color);
+  color: var(--on-accent);
+  font-weight: 700;
+  border-color: var(--accent-color);
+}
+
+/* Excerpt */
+.excerpt {
+  overflow: hidden;
+  max-height: 6.4em;
+  line-height: 1.6em;
+  font-size: 1em;
+  color: var(--muted-text);
+  margin-bottom: 10px;
+  background-color: var(--card-bg);
+  position: relative;
+  transition: background-color var(--transition-fast);
+}
+
+.excerpt p {
+  margin: 0 0 1em;
+}
+
+.excerpt::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1.6em;
+  background: linear-gradient(to bottom, transparent, var(--card-bg));
+}
+
+/* Botões */
+.read-more,
+.back-link a {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--accent-color);
+  font-weight: bold;
+  text-decoration: none;
+  transition: color var(--transition-fast), text-decoration var(--transition-fast);
+}
+
+.read-more:hover,
+.back-link a:hover {
+  text-decoration: underline;
+  color: var(--rose-color);
+}
+
+/* Posts relacionados */
+.related-posts ul.related-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.related-posts li {
+  background-color: var(--card-bg);
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.related-posts li:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transform: translateY(-3px);
+}
+
+.related-posts .thumb {
+  margin-bottom: 10px;
+}
+
+.related-posts .title {
+  display: block;
+  font-weight: bold;
+  color: var(--link-color);
+  font-family: var(--font-title);
+  transition: color var(--transition-fast);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .site-content main {
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  .site-content aside {
+    padding: var(--space-sm);
+    border-top: 1px solid var(--border-color);
+    border-left: none;
+  }
+
+  .header-top{
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+    .header-search-form{
+    width: 100%;
+  }
+
+  .header-search-form .search-field{
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  main, aside {
+    padding: 15px;
+  }
+
+  .branding {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  .site-title .site-name {
+    font-size: 1.5em;
+  }
+
+  .site-title .site-description {
+    font-size: 0.9em;
+  }
+
+  .child-page-list li a {
+    padding: 12px 16px;
+    font-size: 0.95em;
+  }
+
+  .related-posts ul.related-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.social-icons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.social-title {
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  font-family: var(--font-title);
+  color: var(--header-fg);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  color: var(--header-fg);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.social-links a:hover,
+
+
+.site-title .site-name a { color: inherit; text-decoration: none; }
+.site-title .site-name a:hover, .site-title .site-name a:focus { text-decoration: underline; }
+
+
+
+
+
+
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* Header layout refinado (harmonioso e consistente em todos os estilos) */
+
+
+.branding{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  flex: 1 1 auto;
+  min-width: 240px;
+}
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex: 0 0 auto;
+}
+
+.primary-nav{
+  margin-top: 8px;
+}
+
+.primary-nav .menu{
+  list-style:none;
+  padding: 0;
+  margin: 0;
+  display:flex;
+  flex-wrap:wrap;
+  gap: 4px;
+}
+
+.primary-nav .menu a{
+  display:inline-flex;
+  align-items:center;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  color: rgba(255,255,255,0.90);
+  text-decoration:none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.primary-nav .menu a:hover {
+  background: rgba(255,255,255,0.14);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Foco no menu: sem outline em nenhum browser, incluindo Firefox */
+.primary-nav .menu a,
+.primary-nav .menu li > a {
+  -webkit-tap-highlight-color: transparent;
+  outline: 0 !important;
+  outline-width: 0 !important;
+  outline-offset: 0 !important;
+  outline-color: transparent !important;
+  outline-style: none !important;
+}
+.primary-nav .menu a:focus,
+.primary-nav .menu li > a:focus {
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+.primary-nav .menu a:focus-visible,
+.primary-nav .menu li > a:focus-visible {
+  outline: 0 !important;
+  box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+/* Item ativo do menu principal */
+.primary-nav .menu li.current-menu-item > a,
+.primary-nav .menu li.current_page_item > a,
+.primary-nav .menu li.current-menu-ancestor > a {
+  color: var(--accent-color);
+  background: rgba(255,255,255,0.10);
+  font-weight: 700;
+  border-bottom: 2px solid var(--accent-color);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+/* Título do site: cor por variável (evita choque entre estilos) */
+.site-title .site-name a{
+  color: var(--header-title-color);
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.site-title .site-description{
+  color: var(--header-muted);
+}
+
+/* Busca no header */
+.header-search{
+  display:block;
+}
+
+.search-toggle{
+  display:none;
+  height: 44px;
+  box-sizing: border-box;
+  padding: 0 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--header-input-border);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.92);
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  cursor: pointer;
+  align-items: center;
+  gap: 6px;
+}
+
+.header-search-form .search-field{
+  min-width: 260px;
+  max-width: 40vw;
+}
+
+/* Menu toggle harmonizado */
+.menu-toggle{
+  height: 44px;
+  box-sizing: border-box;
+  padding: 0 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--header-input-border);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.92);
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.menu-toggle:hover{
+  background: rgba(255,255,255,0.14);
+}
+
+@media (max-width: 900px){
+  .header-search-form .search-field{
+    min-width: 180px;
+    max-width: 55vw;
+  }
+}
+
+@media (max-width: 768px){
+  .header-actions{
+    width: 100%;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+  .search-toggle{
+    display:inline-flex;
+  }
+  .header-search{
+    display:none;
+    width:100%;
+    margin-top: 8px;
+  }
+  .header-search.is-open{
+    display:block;
+  }
+  .header-search-form{
+    width:100%;
+  }
+  .header-search-form .search-field{
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+  /* Menu recolhido por padrão no mobile — expande ao clicar em "Menu" */
+  .primary-nav .menu{
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+    margin-top: 8px;
+  }
+  .primary-nav .menu.active{
+    display: flex;
+  }
+  .primary-nav .menu a{
+    padding: 12px 14px;
+    border-radius: 8px;
+    width: 100%;
+  }
+}
+
+
+/* =========================
+   Layout do cabeçalho (Personalizador)
+   Classes no body: header-layout-left | header-layout-center | header-layout-stacked
+   ========================= */
+body.header-layout-left .header-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 1rem;
+}
+body.header-layout-left .branding{
+  display:flex;
+  align-items:center;
+  gap: 1rem;
+  min-width: 0;
+}
+body.header-layout-left .header-actions{
+  display:flex;
+  align-items:center;
+  gap: .75rem;
+}
+
+/* Centralizado: branding e ações em coluna, alinhados ao centro */
+body.header-layout-center .header-top{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap: .75rem;
+  text-align:center;
+}
+body.header-layout-center .branding{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap: .5rem;
+}
+body.header-layout-center .site-title{
+  align-items:center;
+}
+body.header-layout-center .header-actions{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:.75rem;
+}
+
+/* Empilhado: logo acima do nome, porém mantém ações à direita no desktop */
+body.header-layout-stacked .branding{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap: .25rem;
+}
+@media (min-width: 720px){
+  body.header-layout-stacked .header-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 1rem;
+  }
+}
+@media (max-width: 719px){
+  body.header-layout-stacked .header-top{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap: .75rem;
+  }
+  body.header-layout-stacked .header-actions{
+    width:100%;
+  }
+}
+
+
+/* =========================
+   Estilos de conteúdo (post, página, archive, busca)
+   ========================= */
+
+/* Títulos de post/página */
+.entry-title {
+  font-family: var(--font-title);
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--text-color);
+  margin: 0 0 0.6rem;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.entry-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.entry-title a:hover,
+.entry-title a:focus-visible {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+/* Cabeçalhos de archive/busca */
+.archive-header,
+.search-header {
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.archive-title,
+.search-header h1 {
+  font-family: var(--font-title);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-color);
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.search-header em {
+  color: var(--accent-color);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.archive-description {
+  color: var(--muted-text);
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  line-height: 1.6;
+}
+
+/* Artigo na listagem */
+article {
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-lg);
+}
+
+article:last-of-type {
+  border-bottom: none;
+}
+
+/* Largura de leitura confortável para conteúdo longo */
+.post-content,
+.page-content {
+  max-width: var(--prose-max);
+}
+
+/* Página de post individual */
+.post-header {
+  margin-bottom: 1.5rem;
+}
+
+.post-header .entry-title {
+  font-size: 2rem;
+}
+
+/* Sem resultados / sem posts */
+.no-posts,
+.no-results {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--muted-text);
+}
+
+.no-posts h2,
+.no-results h2 {
+  font-size: 1.4rem;
+  color: var(--text-color);
+  margin-bottom: 0.75rem;
+}
+
+/* Links do conteúdo */
+.post-content a,
+.page-content a {
+  color: var(--link-color);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.post-content a:hover,
+.page-content a:hover,
+.post-content a:focus-visible,
+.page-content a:focus-visible {
+  opacity: 0.8;
+}
+
+/* Blockquote acessível */
+.post-content blockquote,
+.page-content blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem 1rem 1.5rem;
+  border-left: 4px solid var(--accent-color);
+  background: var(--bg-light);
+  border-radius: 0 8px 8px 0;
+  color: var(--muted-text);
+  font-style: italic;
+}
+
+/* Tabelas acessíveis */
+.post-content table,
+.page-content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  margin: 1.5rem 0;
+}
+
+.post-content th,
+.page-content th {
+  background: var(--primary-color);
+  color: #fff;
+  padding: 10px 14px;
+  text-align: left;
+}
+
+.post-content td,
+.page-content td {
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+.post-content tr:nth-child(even) td,
+.page-content tr:nth-child(even) td {
+  background: var(--bg-light);
+}
+
+/* Código inline e blocos */
+.post-content code,
+.page-content code {
+  background: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.9em;
+  color: var(--text-color);
+}
+
+.post-content pre,
+.page-content pre {
+  background: var(--primary-color);
+  color: #e5e7eb;
+  border-radius: 8px;
+  padding: 1.25rem;
+  overflow-x: auto;
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+.post-content pre code,
+.page-content pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+}
+
+/* Seção de posts relacionados */
+.related-posts {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.related-posts h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 1rem;
+}
+
+/* Paginação de subpáginas */
+.child-pages .wp-pagenavi,
+.child-pages .page-links {
+  margin-top: 1rem;
+}
+
+
+/* =========================
+   Melhorias de Design — v2.1
+   Tipografia · Botões · Respiro · Acessibilidade
+   ========================= */
+
+/* Tipografia aprimorada */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--text-color);
+}
+
+.post-content,
+.page-content {
+  line-height: 1.80;
+  font-size: 1.05rem;
+  max-width: var(--prose-max);
+}
+
+.post-content p,
+.page-content p {
+  margin-bottom: 1.4em;
+}
+
+/* Botão primário — "Ouvir ao vivo" */
+.btn-primary,
+a.btn-primary,
+button.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 12px 24px;
+  background: var(--accent-color);
+  color: var(--on-accent);
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1;
+  border: none;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  transition: filter var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn-primary:hover,
+a.btn-primary:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.22);
+}
+
+
+
+/* Botão secundário — "Acessibilidade" */
+.btn-secondary,
+a.btn-secondary,
+button.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 11px 22px;
+  background: transparent;
+  color: var(--accent-color);
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1;
+  border: 2px solid var(--accent-color);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.btn-secondary:hover,
+a.btn-secondary:hover {
+  background: var(--accent-color);
+  color: var(--on-accent);
+}
+
+
+
+/* Respiro entre seções de conteúdo */
+.entry-header {
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.entry-footer {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--border-color);
+}
+
+/* Cards com mais respiro interno */
+.card,
+.wp-block-group,
+.widget {
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+}
+
+/* Limite de largura do container principal de texto */
+.wrap.single-wrap,
+.wrap.page-wrap {
+  max-width: calc(var(--prose-max) + 2 * var(--space-lg));
+}
+
+/* Search submit e botões de formulário consistentes */
+.search-submit,
+input[type="submit"] {
+  background: var(--accent-color);
+  color: var(--on-accent);
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 10px 18px;
+  cursor: pointer;
+  transition: filter var(--transition-fast);
+}
+
+.search-submit:hover,
+input[type="submit"]:hover {
+  filter: brightness(1.08);
+}
+
+/* Links inline de conteúdo — cor consistente */
+.post-content a,
+.page-content a {
+  color: var(--link-color);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+}
+
+.post-content a:hover,
+.page-content a:hover {
+  opacity: 0.80;
+}
+
+/* Melhora read-more como botão inline */
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: var(--space-sm);
+  padding: 8px 16px;
+  background: var(--accent-color);
+  color: var(--on-accent);
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: filter var(--transition-fast), transform var(--transition-fast);
+}
+
+.read-more:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  text-decoration: none;
+  color: var(--on-accent);
+}
+
+/* Header: menu links levemente menores em desktop para mais itens */
+@media (min-width: 769px) {
+  .primary-nav .menu a {
+    padding: 7px 13px;
+    font-size: 0.92rem;
+  }
+}
+
+/* Mobile: menu items com melhor área de toque */
+@media (max-width: 768px) {
+  .primary-nav .menu li.current-menu-item > a,
+  .primary-nav .menu li.current_page_item > a {
+    border-bottom: none;
+    border-left: 3px solid var(--accent-color);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding-left: 11px;
+  }
+  main {
+    padding: var(--space-md) var(--space-sm);
+  }
+}
+
+/* ==========================================================
+   Correções pontuais
+   ========================================================== */
+
+/* Contraste de texto muted em estilos dark */
+body.style-ceuafe      { --muted-text: rgba(215,230,248,0.85); }
+body.style-neonpop     { --muted-text: #a8b4c4; }
+body.style-vintagecafe { --muted-text: rgba(255,243,220,0.80); }
+body.style-campoepaixao{ --muted-text: rgba(249,250,251,0.82); }
+
+/* ==========================================================
+   AJUSTES FINAIS DE ESTILO — v2.3
+   ========================================================== */
+
+/* ── Padrão: aside com fundo levemente distinto do main ── */
+body:not([class*="style-"]) aside,
+body.style-default aside {
+  background-color: var(--bg-light);
+  border-left: 1px solid var(--border-color);
+}
+
+/* ── Todos os estilos: widget/card com borda sutil para não flutuar ── */
+.widget,
+.footer-widget,
+aside .widget {
+  border: 1px solid var(--border-color);
+}
+
+/* ── Campo e Paixão: borda dos cards levemente verde para integrar ── */
+body.style-campoepaixao .widget,
+body.style-campoepaixao article,
+body.style-campoepaixao aside {
+  border-color: rgba(255,255,255,0.10);
+}
+
+/* ── Vintage Café: card-bg deve ser perceptível sobre o bg-light ── */
+body.style-vintagecafe main,
+body.style-vintagecafe .widget,
+body.style-vintagecafe article {
+  border: 1px solid rgba(212,175,55,0.20);
+}
+
+/* ── Tinta & Papel: aside com fundo creme mais escuro ── */
+body.style-tintaepapel aside {
+  background-color: #e8e2d5;
+  border-left: 1px solid #c8c0b0;
+}
+
+body.style-tintaepapel main {
+  border-right: 1px solid #c8c0b0;
+}
+
+/* ── Texto do tema padrão no modo light: cor do link correta ── */
+body:not([class*="style-"]) .primary-nav .menu li a,
+body.style-default .primary-nav .menu li a {
+  color: rgba(255,255,255,0.90) !important;
+}
+
+/* ── Neon Pop: borda de cards mais nítida ── */
+body.style-neonpop .widget,
+body.style-neonpop article,
+body.style-neonpop aside {
+  border: 1px solid rgba(0,191,255,0.15);
+}
+
+/* ── Remove padding duplo no aside mobile ── */
+@media (max-width: 768px) {
+  aside {
+    border-left: none;
+    border-top: 1px solid var(--border-color);
+    padding: var(--space-sm);
+  }
+}
+
+
+
+/* Footer: container com padding lateral para o texto não encostar na borda */
+footer .container {
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+/* ==========================================================
+   Estilo Marinelli Drupal
+   Visual institucional clássico fiel ao tema Marinelli
+   ========================================================== */
+
+/* Bordas mais marcadas entre main e aside — separação clara */
+body.style-marinelli main {
+  border-right: 1px solid #c8ccd1;
+}
+
+body.style-marinelli aside {
+  border-left: none;
+  background-color: #e8eaf0;
+}
+
+/* Sidebar: títulos de widget com borda inferior azul — estilo Marinelli */
+body.style-marinelli .widget h3,
+body.style-marinelli .widget h2 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #2a4b8d;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #2a4b8d;
+  margin-bottom: 12px;
+}
+
+/* Links no conteúdo: azul clássico com underline — idêntico ao Marinelli */
+body.style-marinelli .post-content a,
+body.style-marinelli .page-content a {
+  color: #0645ad;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+body.style-marinelli .post-content a:hover,
+body.style-marinelli .page-content a:hover {
+  color: #2a4b8d;
+}
+
+/* Títulos de conteúdo com cor azul-aço */
+body.style-marinelli .entry-title,
+body.style-marinelli h1,
+body.style-marinelli h2,
+body.style-marinelli h3 {
+  color: #2a4b8d;
+}
+
+/* Linha horizontal (hr / separador) mais visível */
+body.style-marinelli hr,
+body.style-marinelli .wp-block-separator {
+  border-color: #c8ccd1;
+  border-width: 1px 0 0;
+}
+
+/* Paginação com estilo Marinelli */
+body.style-marinelli .pagination .page-numbers {
+  border-radius: 2px;
+  border: 1px solid #c8ccd1;
+}
+
+body.style-marinelli .pagination .current,
+body.style-marinelli .pagination .page-numbers:hover {
+  background-color: #2a4b8d;
+  border-color: #2a4b8d;
+  color: #ffffff;
+}
+
+/* Blockquote com borda esquerda azul */
+body.style-marinelli .post-content blockquote,
+body.style-marinelli .page-content blockquote {
+  border-left-color: #2a4b8d;
+  background: #f0f2f7;
+  color: #333333;
+}
+
+/* Item ativo do menu com underline azul */
+body.style-marinelli .primary-nav .menu li.current-menu-item > a,
+body.style-marinelli .primary-nav .menu li.current_page_item > a {
+  color: #ffffff;
+  background: rgba(255,255,255,0.18);
+  border-bottom-color: #ffffff;
+}
+
+/* Marinelli: botão Buscar com fundo azul-aço */
+body.style-marinelli .header-search-form .search-submit {
+  background-color: #2a4b8d;
+  color: #ffffff;
+  border: 1px solid #1e3a6e;
+  font-weight: 600;
+}
+
+body.style-marinelli .header-search-form .search-submit:hover,
+body.style-marinelli .header-search-form .search-submit:focus-visible {
+  background-color: #1e3a6e;
+  filter: none;
+}
+
+/* Marinelli: campo de busca com borda azul sutil */
+body.style-marinelli .header-search-form .search-field {
+  border: 1px solid #c8ccd1;
+  background: rgba(255,255,255,0.12);
+  color: #ffffff;
+}
+
+body.style-marinelli .header-search-form .search-field::placeholder {
+  color: rgba(255,255,255,0.70);
+}
+
+/* Marinelli: botão Menu harmonizado */
+body.style-marinelli .menu-toggle {
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.30);
+  color: #ffffff;
+}
+
+body.style-marinelli .menu-toggle:hover {
+  background: rgba(255,255,255,0.20);
+}
+
+/* ==========================================================
+   Marinelli Drupal — Estilo completo e definitivo
+   Baseado no CSS original do tema Marinelli para Drupal 7
+   ========================================================== */
+
+/* ── Fundo do body: azul-marinho escuro fora do container ── */
+body.style-marinelli {
+  background-color: #17293d;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+/* ── Container de conteúdo: fundo branco com borda azul ── */
+body.style-marinelli .site-content {
+  background-color: #ffffff;
+  border: 8px solid #054b81;
+  border-top: 0;
+  box-shadow: 5px 5px 20px #051b32;
+}
+
+/* ── Header: azul-aço sólido com sombra de texto ── */
+body.style-marinelli .site-header {
+  background-color: #054b81;
+  border-bottom: 3px solid #17293d;
+}
+
+body.style-marinelli .site-title .site-name a {
+  color: #ffffff;
+  text-decoration: none !important;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-shadow: rgba(10,10,10,0.4) 2px 3px 3px;
+}
+
+body.style-marinelli .site-title .site-description {
+  color: rgba(255,255,255,0.85);
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+/* ── Rodapé: azul-marinho escuro ── */
+body.style-marinelli footer {
+  background-color: #17293d;
+  border-top: 3px solid #054b81;
+  color: #ffffff;
+}
+
+body.style-marinelli .site-info,
+body.style-marinelli .site-info p {
+  color: rgba(255,255,255,0.80);
+  border-top-color: rgba(255,255,255,0.15);
+}
+
+body.style-marinelli .social-title { color: #ffffff; }
+body.style-marinelli footer a { color: rgba(255,255,255,0.85); text-decoration: none; }
+body.style-marinelli footer a:hover { color: #ffffff; }
+
+/* ── Área de conteúdo principal ── */
+body.style-marinelli main {
+  background-color: #ffffff;
+  border-right: 1px solid #e2e2e2;
+}
+
+/* ── Sidebar ── */
+body.style-marinelli aside {
+  background-color: #f0f2f5;
+  border-left: none;
+}
+
+body.style-marinelli .widget {
+  background-color: #ffffff;
+  border: 1px solid #e2e2e2;
+  border-radius: 0 0 5px 5px;
+  margin-bottom: 15px;
+}
+
+/* Títulos de widget: estilo Marinelli original */
+body.style-marinelli .widget h3,
+body.style-marinelli .widget h2 {
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  background: linear-gradient(to bottom, #5f9ac7, #054b81 40%);
+  padding: 6px 10px;
+  margin: -1.75rem -1.75rem 1rem -1.75rem;
+  border-radius: 5px 5px 0 0;
+  border-bottom: none;
+  text-shadow: rgba(10,10,10,0.4) 1px 2px 2px;
+}
+
+/* ── Menu principal: estilo Marinelli original ── */
+body.style-marinelli .primary-nav .menu a {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  background: linear-gradient(to bottom, #7ab0d4, #156aa3 40%);
+  border-radius: 5px 5px 0 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.92rem;
+  text-shadow: rgba(10,10,10,0.4) 1px 2px 2px;
+}
+
+body.style-marinelli .primary-nav .menu a:hover {
+  background: linear-gradient(to bottom, #f4d7ba, #f97e05 40%) !important;
+  color: #ffffff !important;
+}
+
+/* Item ativo: azul mais escuro */
+body.style-marinelli .primary-nav .menu li.current-menu-item > a,
+body.style-marinelli .primary-nav .menu li.current_page_item > a {
+  background: linear-gradient(to bottom, #5f9ac7, #054b81 40%) !important;
+  color: #ffffff !important;
+  border-bottom: none !important;
+  font-weight: bold !important;
+}
+
+/* ── Campo de busca: estilo Marinelli original ── */
+body.style-marinelli .header-search-form .search-field {
+  background-color: #156aa3;
+  border: 4px solid #ffffff;
+  color: #ffffff;
+  font-size: 1rem;
+  border-radius: 5px;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+body.style-marinelli .header-search-form .search-field::placeholder {
+  color: rgba(255,255,255,0.75);
+}
+
+body.style-marinelli .header-search-form .search-field:focus {
+  background-color: #054b81;
+  outline: none;
+}
+
+/* ── Botão Buscar: estilo Marinelli original ── */
+body.style-marinelli .header-search-form .search-submit {
+  background-color: #054b81;
+  border: 4px solid #ffffff;
+  color: #ffffff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1rem;
+  border-radius: 5px;
+  filter: none;
+}
+
+body.style-marinelli .header-search-form .search-submit:hover,
+body.style-marinelli .header-search-form .search-submit:focus-visible {
+  background-color: #f97e05;
+  border-color: #f97e05;
+  filter: none;
+}
+
+/* ── Botão Menu (mobile) ── */
+body.style-marinelli .menu-toggle {
+  background: rgba(255,255,255,0.12);
+  border: 2px solid rgba(255,255,255,0.40);
+  color: #ffffff;
+}
+
+/* ── Tipografia e links: Marinelli original ── */
+body.style-marinelli {
+  color: #333333;
+}
+
+body.style-marinelli a {
+  color: #156aa3;
+  text-decoration: underline;
+}
+
+body.style-marinelli a:hover {
+  color: #163e55;
+}
+
+body.style-marinelli a:active {
+  color: #f97e05;
+}
+
+/* Links no header/menu: brancos */
+body.style-marinelli .site-header a,
+body.style-marinelli .primary-nav a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* ── Títulos de conteúdo ── */
+body.style-marinelli h1,
+body.style-marinelli h2,
+body.style-marinelli h3,
+body.style-marinelli h4 {
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  color: #333333;
+}
+
+body.style-marinelli .entry-title {
+  color: #054b81;
+  font-weight: bold;
+}
+
+/* H2 e H3 com borda inferior cinza — estilo original */
+body.style-marinelli h2,
+body.style-marinelli h3 {
+  border-bottom: 1px solid #e2e2e2;
+  padding-bottom: 5px;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* ── Blockquote ── */
+body.style-marinelli .post-content blockquote,
+body.style-marinelli .page-content blockquote {
+  border-left: 4px solid #156aa3;
+  background: #f0f4f8;
+  color: #555555;
+  border-radius: 0 5px 5px 0;
+}
+
+/* ── Faixas alternadas nas listas de artigos ── */
+body.style-marinelli article:nth-child(even) {
+  background-color: #f5f7fa;
+}
+
+body.style-marinelli article:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/* ── Separadores ── */
+body.style-marinelli article {
+  border-bottom-color: #e2e2e2;
+}
+
+body.style-marinelli .site-content {
+  border-top: 0;
+}
+
+/* ── Paginação ── */
+body.style-marinelli .pagination .page-numbers {
+  border-radius: 3px;
+  border: 1px solid #c8ccd1;
+  color: #156aa3;
+}
+
+body.style-marinelli .pagination .current,
+body.style-marinelli .pagination .page-numbers:hover {
+  background: linear-gradient(to bottom, #7ab0d4, #156aa3 40%);
+  border-color: #156aa3;
+  color: #ffffff;
+}
+
+/* ── Read more como link simples ── */
+body.style-marinelli .read-more {
+  background: none;
+  color: #156aa3;
+  text-decoration: underline;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  font-weight: normal;
+  font-size: 0.95rem;
+}
+
+body.style-marinelli .read-more:hover {
+  color: #163e55;
+  transform: none;
+  filter: none;
+}
+
+/* ── Logo: sem bordas ── */
+body.style-marinelli .logo img,
+body.style-marinelli img.custom-logo,
+body.style-marinelli .custom-logo-link,
+body.style-marinelli .custom-logo-link:focus,
+body.style-marinelli a.custom-logo-link {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+body.style-marinelli .site-header figure,
+body.style-marinelli .site-header .wp-block-image,
+body.style-marinelli .logo {
+  border: none !important;
+  outline: none !important;
+}
+
+/* Skip-link: proteção absoluta em todos os estilos escuros */
+body[class*="style-"] .skip-link {
+  opacity: 0 !important;
+  color: transparent !important;
+  background: transparent !important;
+  border-color: transparent !important;
+  pointer-events: none !important;
+}
+
+body[class*="style-"] .skip-link:focus,
+body[class*="style-"] .skip-link:focus-visible {
+  opacity: 1 !important;
+  color: var(--on-accent) !important;
+  background: var(--accent-color) !important;
+  border-color: var(--on-accent) !important;
+  pointer-events: auto !important;
+}
+
+/* ==========================================================
+   Correções visuais por estilo — separação de áreas
+   ========================================================== */
+
+/* ── Neon Pop: borda neon entre main e aside, widgets visíveis ── */
+body.style-neonpop main {
+  background-color: #1a2235;
+  border-right: 1px solid rgba(0,191,255,0.20);
+}
+body.style-neonpop aside {
+  background-color: #0f1520;
+  border-left: 1px solid rgba(0,191,255,0.15);
+}
+body.style-neonpop .widget {
+  background-color: #1a2235;
+  border: 1px solid rgba(0,191,255,0.18);
+}
+body.style-neonpop .site-content {
+  border-left: 1px solid rgba(0,191,255,0.12);
+  border-right: 1px solid rgba(0,191,255,0.12);
+}
+
+/* ── Vintage Café: separação quente entre áreas ── */
+body.style-vintagecafe main {
+  background-color: #3d2510;
+  border-right: 1px solid rgba(212,175,55,0.20);
+}
+body.style-vintagecafe aside {
+  background-color: #251508;
+  border-left: 1px solid rgba(212,175,55,0.15);
+}
+body.style-vintagecafe .widget {
+  background-color: #3d2510;
+  border: 1px solid rgba(212,175,55,0.22);
+}
+
+/* ── Campo e Paixão: distinção clara com borda vermelha sutil ── */
+body.style-campoepaixao main {
+  background-color: #133d20;
+  border-right: 1px solid rgba(230,0,0,0.18);
+}
+body.style-campoepaixao aside {
+  background-color: #071a0d;
+  border-left: 1px solid rgba(230,0,0,0.12);
+}
+body.style-campoepaixao .widget {
+  background-color: #133d20;
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+/* ── Céu e Fé: distinção suave com borda dourada ── */
+body.style-ceuafe main {
+  background-color: #1e3460;
+  border-right: 1px solid rgba(201,168,76,0.18);
+}
+body.style-ceuafe aside {
+  background-color: #111e2e;
+  border-left: 1px solid rgba(201,168,76,0.12);
+}
+body.style-ceuafe .widget {
+  background-color: #1e3460;
+  border: 1px solid rgba(201,168,76,0.18);
+}
+
+/* ── Tinta & Papel: borda marrom entre áreas ── */
+body.style-tintaepapel main {
+  background-color: #fdfaf4;
+  border-right: 1px solid #c8c0b0;
+}
+body.style-tintaepapel aside {
+  background-color: #ede8dd;
+  border-left: none;
+}
+body.style-tintaepapel .widget {
+  background-color: #fdfaf4;
+  border: 1px solid #c8c0b0;
+}
+
+/* ── Padrão: separação limpa ── */
+body:not([class*="style-"]) main,
+body.style-default main {
+  border-right: 1px solid var(--border-color);
+}
+body:not([class*="style-"]) aside,
+body.style-default aside {
+  border-left: none;
+  background-color: var(--bg-light);
+}
+
+/* Vintage Café: remove borda da logo que aparece no header */
+body.style-vintagecafe .logo img,
+body.style-vintagecafe img.custom-logo,
+body.style-vintagecafe .custom-logo-link,
+body.style-vintagecafe .custom-logo-link img,
+body.style-vintagecafe a.custom-logo-link {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+body.style-vintagecafe .site-header figure,
+body.style-vintagecafe .site-header .logo,
+body.style-vintagecafe .branding figure {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Campo e Paixão: mesma correção */
+body.style-campoepaixao .logo img,
+body.style-campoepaixao img.custom-logo,
+body.style-campoepaixao .custom-logo-link,
+body.style-campoepaixao .custom-logo-link img,
+body.style-campoepaixao a.custom-logo-link,
+body.style-campoepaixao .site-header figure,
+body.style-campoepaixao .site-header .logo {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}

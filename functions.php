@@ -330,6 +330,7 @@ function independent_theme_customize_register( $wp_customize ) {
       'ceuafe'       => __( '✝️ Site Cristão – Céu e Fé', 'independent-theme' ),
       'tintaepapel'  => __( '✍️ Site para Escritor – Tinta & Papel', 'independent-theme' ),
       'marinelli'    => __( '🏛️ Institucional – Marinelli Drupal', 'independent-theme' ),
+      'moderno'      => __( '⚡ Moderno – Vibrante & Contemporâneo', 'independent-theme' ),
     ],
   ] );
 }
@@ -513,6 +514,33 @@ $styles = [
       '--radius-lg'          => '5px',
     ],
 
+    /*
+     * ⚡ Moderno — Vibrante & Contemporâneo
+     * Roxo profundo + ciano elétrico + glassmorphism
+     * Gradientes, brilhos, animações com personalidade
+     * O que há de mais atual em design web 2026
+     */
+    'moderno' => [
+      '--primary-color'      => '#0f0c29',   // roxo profundo quase preto
+      '--bg-light'           => '#0a0818',   // fundo ultra escuro
+      '--card-bg'            => '#1a1535',   // roxo escuro para cards
+      '--accent-color'       => '#00f5d4',   // ciano elétrico vibrante
+      '--on-accent'          => '#0a0818',
+      '--link-color'         => '#c77dff',   // violeta claro para links
+      '--text-color'         => '#f0eeff',   // branco levemente violeta
+      '--muted-text'         => 'rgba(200,180,255,0.70)',
+      '--border-color'       => 'rgba(199,125,255,0.20)',
+      '--header-title-color' => '#ffffff',
+      '--header-muted'       => 'rgba(0,245,212,0.75)',
+      '--header-border'      => 'rgba(0,245,212,0.20)',
+      '--focus-ring'         => '3px solid #00f5d4',
+      '--font-main'          => "'Inter', system-ui, sans-serif",
+      '--font-title'         => "'Montserrat', 'Inter', system-ui, sans-serif",
+      '--radius-sm'          => '10px',
+      '--radius-md'          => '16px',
+      '--radius-lg'          => '24px',
+    ],
+
   ];
 
   $css_vars = [
@@ -570,6 +598,17 @@ function independent_theme_late_style() {
     .header-search-form { align-items: stretch !important; }
     .header-search-form .search-field,
     .header-search-form .search-submit { height: 44px !important; box-sizing: border-box !important; }
+
+    /* Moderno: título h1 em ciano vibrante — compatível com todos os browsers */
+    body.style-moderno h1,
+    body.style-moderno h1.entry-title,
+    body.style-moderno .entry-title {
+      color: #00f5d4 !important;
+      -webkit-text-fill-color: #00f5d4 !important;
+      background: none !important;
+      background-clip: unset !important;
+      -webkit-background-clip: unset !important;
+    }
   </style>
   <?php
 }

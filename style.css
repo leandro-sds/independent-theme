@@ -2,7 +2,7 @@
 Theme Name: Independent Theme
 Author: Leandro Souza
 Description: Tema moderno, responsivo e acessível com estilos visuais personalizáveis.
-Version: 2.1.0
+Version: 2.2.0
 Requires at least: 6.5
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -645,6 +645,143 @@ nav ul li.current-menu-ancestor > a {
 
 
 
+
+/* ==========================================================
+   Animações — Independent Theme
+   Elegantes, sutis, sem exagero.
+   Todas respeitam prefers-reduced-motion abaixo.
+   ========================================================== */
+
+/* ── Keyframes ── */
+
+/* Entrada suave de baixo para cima */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Entrada suave de cima para baixo (header) */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Entrada suave lateral (sidebar) */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade simples (elementos gerais) */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Aplicação das animações ── */
+
+/* Header: desce suavemente ao carregar */
+.site-header {
+  animation: fadeInDown 0.45s ease both;
+}
+
+/* Menu principal: itens aparecem em sequência */
+.primary-nav {
+  animation: fadeIn 0.5s ease 0.2s both;
+}
+
+/* Conteúdo principal: sobe suavemente */
+main {
+  animation: fadeInUp 0.5s ease 0.15s both;
+}
+
+/* Sidebar: desliza da direita */
+aside {
+  animation: fadeInRight 0.5s ease 0.25s both;
+}
+
+/* Artigos na listagem: entrada escalonada */
+article:nth-child(1) { animation: fadeInUp 0.45s ease 0.10s both; }
+article:nth-child(2) { animation: fadeInUp 0.45s ease 0.18s both; }
+article:nth-child(3) { animation: fadeInUp 0.45s ease 0.26s both; }
+article:nth-child(4) { animation: fadeInUp 0.45s ease 0.34s both; }
+article:nth-child(5) { animation: fadeInUp 0.45s ease 0.42s both; }
+
+/* Widgets da sidebar: entrada escalonada */
+.widget:nth-child(1) { animation: fadeInRight 0.45s ease 0.20s both; }
+.widget:nth-child(2) { animation: fadeInRight 0.45s ease 0.30s both; }
+.widget:nth-child(3) { animation: fadeInRight 0.45s ease 0.40s both; }
+
+/* Footer: sobe suavemente */
+footer {
+  animation: fadeInUp 0.5s ease 0.1s both;
+}
+
+/* Botão Buscar: transição de escala no hover — mais vivo */
+.header-search-form .search-submit {
+  transition: filter var(--transition-fast),
+              transform var(--transition-fast),
+              background-color var(--transition-fast) !important;
+}
+.header-search-form .search-submit:hover {
+  transform: scale(1.04);
+}
+
+/* Logo: hover com escala suave já existia — mantida */
+
+/* Links do menu: sublinhado animado no hover */
+.primary-nav .menu a::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s ease;
+  border-radius: 2px;
+}
+.primary-nav .menu a:hover::after {
+  transform: scaleX(1);
+}
+/* Item ativo não precisa do pseudo-elemento — já tem border-bottom */
+.primary-nav .menu li.current-menu-item > a::after,
+.primary-nav .menu li.current_page_item > a::after {
+  display: none;
+}
+
+/* Cards de posts: sombra e elevação no hover — mais expressivo */
+article {
+  transition: box-shadow 0.25s ease, transform 0.25s ease,
+              background-color var(--transition-fast) !important;
+}
+article:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+}
+
+/* Skip-link: entrada suave ao receber foco */
+.skip-link:focus,
+.skip-link:focus-visible {
+  animation: fadeInDown 0.2s ease both;
+}
 
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -1329,6 +1466,7 @@ body.style-ceuafe      { --muted-text: rgba(215,230,248,0.85); }
 body.style-neonpop     { --muted-text: #a8b4c4; }
 body.style-vintagecafe { --muted-text: rgba(255,243,220,0.80); }
 body.style-campoepaixao{ --muted-text: rgba(249,250,251,0.82); }
+body.style-moderno     { --muted-text: rgba(200,185,255,0.92); }
 
 /* ==========================================================
    AJUSTES FINAIS DE ESTILO — v2.3
@@ -1950,4 +2088,517 @@ body.style-campoepaixao .site-header .logo {
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
+}
+
+/* ==========================================================
+   ⚡ MODERNO — Vibrante & Contemporâneo
+   Glassmorphism · Gradientes · Glow · Animações com caráter
+   ========================================================== */
+
+/* ── Keyframes exclusivos do estilo Moderno ── */
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(0,245,212,0.3), 0 0 20px rgba(0,245,212,0.1); }
+  50%       { box-shadow: 0 0 16px rgba(0,245,212,0.6), 0 0 40px rgba(0,245,212,0.2); }
+}
+
+@keyframes shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-4px); }
+}
+
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(0,245,212,0.3); }
+  50%       { border-color: rgba(199,125,255,0.6); }
+}
+
+/* ── Body e fundo ── */
+body.style-moderno {
+  background: radial-gradient(ellipse at 20% 50%, #1a0a2e 0%, #0a0818 60%);
+  background-attachment: fixed;
+}
+
+/* ── Header com gradiente animado ── */
+body.style-moderno .site-header {
+  background: linear-gradient(135deg, #0f0c29, #1a0a3e, #0d1b3e, #0f0c29);
+  background-size: 300% 300%;
+  animation: fadeInDown 0.45s ease both, gradientShift 8s ease infinite;
+  border-bottom: 1px solid rgba(0,245,212,0.25);
+  box-shadow: 0 4px 30px rgba(0,245,212,0.08);
+}
+
+/* Nome do site com gradiente de texto */
+body.style-moderno .site-title .site-name a {
+  background: linear-gradient(90deg, #ffffff, #00f5d4, #c77dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-decoration: none !important;
+}
+
+body.style-moderno .site-title .site-description {
+  color: rgba(0,245,212,0.80);
+  font-size: 0.88rem;
+  letter-spacing: 0.05em;
+}
+
+/* ── Menu com efeito moderno ── */
+body.style-moderno .primary-nav .menu a {
+  color: rgba(240,238,255,0.95) !important;
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  letter-spacing: 0.03em !important;
+  border-radius: 10px !important;
+  transition: background 0.22s ease, color 0.22s ease,
+              box-shadow 0.22s ease !important;
+}
+
+body.style-moderno .primary-nav .menu a:hover {
+  background: rgba(0,245,212,0.12) !important;
+  color: #00f5d4 !important;
+  box-shadow: 0 0 12px rgba(0,245,212,0.20) !important;
+}
+
+body.style-moderno .primary-nav .menu li.current-menu-item > a,
+body.style-moderno .primary-nav .menu li.current_page_item > a {
+  color: #00f5d4 !important;
+  background: rgba(0,245,212,0.10) !important;
+  border-bottom: 2px solid #00f5d4 !important;
+  border-radius: 10px 10px 0 0 !important;
+  font-weight: 700 !important;
+}
+
+/* ── Busca ── */
+body.style-moderno .header-search-form .search-field {
+  background: rgba(255,255,255,0.06) !important;
+  border: 1px solid rgba(0,245,212,0.30) !important;
+  color: #f0eeff !important;
+  border-radius: 10px !important;
+  backdrop-filter: blur(4px);
+}
+
+body.style-moderno .header-search-form .search-field::placeholder {
+  color: rgba(0,245,212,0.50) !important;
+}
+
+body.style-moderno .header-search-form .search-submit {
+  background: linear-gradient(135deg, #00f5d4, #00b4d8) !important;
+  color: #0a0818 !important;
+  border: none !important;
+  border-radius: 10px !important;
+  font-weight: 700 !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+body.style-moderno .header-search-form .search-submit:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 0 20px rgba(0,245,212,0.50) !important;
+  filter: none !important;
+}
+
+/* ── Área de conteúdo ── */
+body.style-moderno .site-content {
+  background: transparent;
+}
+
+body.style-moderno main {
+  background: rgba(26,21,53,0.85);
+  backdrop-filter: blur(12px);
+  border-right: 1px solid rgba(199,125,255,0.15);
+}
+
+body.style-moderno aside {
+  background: rgba(15,12,41,0.90);
+  border-left: 1px solid rgba(0,245,212,0.12);
+}
+
+/* ── Cards / artigos com glassmorphism ── */
+body.style-moderno article,
+body.style-moderno .widget {
+  background: rgba(255,255,255,0.05) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(199,125,255,0.25) !important;
+  border-radius: 20px !important;
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.40),
+    0 2px 8px rgba(0,0,0,0.20),
+    inset 0 1px 0 rgba(255,255,255,0.10),
+    inset 0 -1px 0 rgba(0,245,212,0.06) !important;
+  transition: transform 0.28s ease, box-shadow 0.28s ease,
+              border-color 0.28s ease !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito shimmer no hover dos cards */
+body.style-moderno article::before,
+body.style-moderno .widget::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255,255,255,0.04) 50%,
+    transparent 60%
+  );
+  transform: translateX(-100%);
+  transition: none;
+  pointer-events: none;
+}
+
+body.style-moderno article:hover::before,
+body.style-moderno .widget:hover::before {
+  animation: shimmer 0.7s ease forwards;
+}
+
+body.style-moderno article:hover,
+body.style-moderno .widget:hover {
+  transform: translateY(-3px) !important;
+  border-color: rgba(0,245,212,0.40) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.40),
+              0 0 20px rgba(0,245,212,0.12) !important;
+}
+
+/* ── Títulos ── */
+body.style-moderno h1,
+body.style-moderno h2,
+body.style-moderno h3,
+body.style-moderno .entry-title {
+  font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  /* Gradiente de texto em todos os títulos — com ou sem link */
+  background: linear-gradient(90deg, #ffffff, #c77dff, #00f5d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+body.style-moderno .entry-title a {
+  background: linear-gradient(90deg, #f0eeff, #c77dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+}
+
+body.style-moderno .entry-title a:hover {
+  background: linear-gradient(90deg, #00f5d4, #c77dff);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* ── Títulos de widget com gradiente ── */
+body.style-moderno .widget h3,
+body.style-moderno .widget h2 {
+  background: linear-gradient(90deg, #00f5d4, #c77dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: 'Montserrat', 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid rgba(0,245,212,0.25);
+  padding-bottom: 8px;
+  margin-bottom: 1rem;
+}
+
+/* ── Links ── */
+body.style-moderno a {
+  color: #c77dff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+body.style-moderno a:hover {
+  color: #00f5d4;
+}
+
+body.style-moderno .post-content a,
+body.style-moderno .page-content a {
+  color: #c77dff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ── Blockquote estilo moderno ── */
+body.style-moderno .post-content blockquote,
+body.style-moderno .page-content blockquote {
+  border-left: 3px solid #00f5d4;
+  background: rgba(0,245,212,0.05);
+  border-radius: 0 12px 12px 0;
+  color: rgba(240,238,255,0.85);
+  box-shadow: inset 0 0 20px rgba(0,245,212,0.04);
+}
+
+/* ── Botão read-more ── */
+body.style-moderno .read-more {
+  background: linear-gradient(135deg, #00f5d4, #00b4d8) !important;
+  color: #0a0818 !important;
+  border-radius: 10px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 15px rgba(0,245,212,0.30) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+body.style-moderno .read-more:hover {
+  transform: translateY(-2px) scale(1.03) !important;
+  box-shadow: 0 0 25px rgba(0,245,212,0.50) !important;
+  filter: none !important;
+  color: #0a0818 !important;
+}
+
+/* ── Paginação ── */
+body.style-moderno .pagination .page-numbers {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(199,125,255,0.25);
+  border-radius: 10px;
+  color: #c77dff;
+  backdrop-filter: blur(4px);
+}
+
+body.style-moderno .pagination .current,
+body.style-moderno .pagination .page-numbers:hover {
+  background: linear-gradient(135deg, #00f5d4, #00b4d8);
+  color: #0a0818;
+  border-color: transparent;
+  box-shadow: 0 0 15px rgba(0,245,212,0.40);
+}
+
+/* ── Footer ── */
+body.style-moderno footer {
+  background: linear-gradient(135deg, #0f0c29, #0a0818);
+  border-top: 1px solid rgba(0,245,212,0.15);
+  box-shadow: 0 -4px 30px rgba(0,245,212,0.05);
+}
+
+body.style-moderno .site-info,
+body.style-moderno .site-info p {
+  color: rgba(200,180,255,0.65);
+  border-top-color: rgba(0,245,212,0.10);
+}
+
+body.style-moderno footer a {
+  color: rgba(0,245,212,0.80);
+  text-decoration: none;
+}
+
+body.style-moderno footer a:hover {
+  color: #00f5d4;
+}
+
+body.style-moderno .social-title {
+  color: #f0eeff;
+}
+
+body.style-moderno .social-links a {
+  color: rgba(200,180,255,0.80);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+body.style-moderno .social-links a:hover {
+  color: #00f5d4;
+  transform: scale(1.15);
+}
+
+/* ── Menu toggle ── */
+body.style-moderno .menu-toggle {
+  background: rgba(0,245,212,0.08) !important;
+  border: 1px solid rgba(0,245,212,0.30) !important;
+  color: #f0eeff !important;
+}
+
+body.style-moderno .menu-toggle:hover {
+  background: rgba(0,245,212,0.18) !important;
+}
+
+/* ── Animações especiais do Moderno ── */
+
+/* Logo flutua sutilmente */
+body.style-moderno .logo img,
+body.style-moderno img.custom-logo {
+  animation: floatUp 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px rgba(0,245,212,0.25));
+}
+
+/* Widgets pulsam com glow */
+body.style-moderno .widget {
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+/* Borda dos artigos alterna entre ciano e violeta */
+body.style-moderno article {
+  animation: borderGlow 5s ease-in-out infinite;
+}
+
+/* Escalonamento diferente para cada widget */
+body.style-moderno .widget:nth-child(1) { animation-delay: 0s; }
+body.style-moderno .widget:nth-child(2) { animation-delay: 1s; }
+body.style-moderno .widget:nth-child(3) { animation-delay: 2s; }
+
+/* Escalonamento dos artigos */
+body.style-moderno article:nth-child(1) { animation-delay: 0s; }
+body.style-moderno article:nth-child(2) { animation-delay: 0.8s; }
+body.style-moderno article:nth-child(3) { animation-delay: 1.6s; }
+body.style-moderno article:nth-child(4) { animation-delay: 2.4s; }
+
+/* ── Separação visual entre main e aside ── */
+body.style-moderno main {
+  border-right: 1px solid rgba(199,125,255,0.12);
+}
+
+/* ── Logo sem bordas ── */
+body.style-moderno .custom-logo-link,
+body.style-moderno a.custom-logo-link {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* ==========================================================
+   Moderno — Refinamentos v2
+   ========================================================== */
+
+/* Linha de brilho no topo dos widgets — detalhe premium */
+body.style-moderno .widget::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 15%;
+  width: 70%;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(0,245,212,0.60),
+    rgba(199,125,255,0.60),
+    transparent
+  );
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Hover dos widgets mais expressivo */
+body.style-moderno .widget:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(0,245,212,0.50) !important;
+  box-shadow:
+    0 16px 48px rgba(0,0,0,0.50),
+    0 0 30px rgba(0,245,212,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.12),
+    inset 0 -1px 0 rgba(0,245,212,0.08) !important;
+}
+
+/* Título "Início" e outros h1 sem link — gradiente direto */
+body.style-moderno h1.entry-title:not(:has(a)),
+body.style-moderno .entry-title:not(:has(a)) {
+  background: linear-gradient(90deg, #ffffff 20%, #c77dff 60%, #00f5d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Aside com glassmorphism mais suave */
+body.style-moderno aside {
+  background: rgba(10,8,24,0.75) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+/* Main com glassmorphism elegante */
+body.style-moderno main {
+  background: rgba(26,21,53,0.80) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* Texto do conteúdo mais legível */
+body.style-moderno .post-content p,
+body.style-moderno .page-content p,
+body.style-moderno .post-content li,
+body.style-moderno .page-content li {
+  color: rgba(240,238,255,0.90);
+  line-height: 1.75;
+}
+
+/* Listas com marcador em ciano */
+body.style-moderno .post-content ul li::marker,
+body.style-moderno .page-content ul li::marker {
+  color: #00f5d4;
+}
+
+/* Separadores horizontais com gradiente */
+body.style-moderno hr,
+body.style-moderno .wp-block-separator {
+  border: none !important;
+  height: 1px !important;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(0,245,212,0.40),
+    rgba(199,125,255,0.40),
+    transparent
+  ) !important;
+  margin: 2rem auto !important;
+}
+
+/* ==========================================================
+   Moderno — Correções v3
+   ========================================================== */
+
+/* Título "Início" e qualquer h1 de página — gradiente garantido */
+body.style-moderno h1,
+body.style-moderno h1,
+body.style-moderno h1.entry-title,
+body.style-moderno .page-header .entry-title,
+body.style-moderno .entry-title {
+  background: linear-gradient(90deg, #ffffff 15%, #c77dff 55%, #00f5d4 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+/* Texto "AO VIVO AGORA" e textos apagados nos widgets — mais visíveis */
+body.style-moderno .widget p,
+body.style-moderno .widget span,
+body.style-moderno .widget small,
+body.style-moderno .widget label,
+body.style-moderno aside p,
+body.style-moderno aside span {
+  color: rgba(220,210,255,0.92) !important;
+}
+
+/* "Clique em Tocar para ouvir" especificamente */
+body.style-moderno aside .widget *:not(h2):not(h3):not(a):not(button) {
+  color: rgba(200,185,255,0.90);
+}
+
+/* Textos em maiúsculas pequenas dentro dos widgets (AO VIVO AGORA) */
+body.style-moderno .widget [class*="status"],
+body.style-moderno .widget [class*="label"],
+body.style-moderno .widget [class*="live"],
+body.style-moderno .widget [class*="now"] {
+  color: #00f5d4 !important;
+  font-weight: 600 !important;
 }

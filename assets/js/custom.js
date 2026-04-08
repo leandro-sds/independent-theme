@@ -1,5 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+  // -----------------
+  // Moderno: gradiente no h1 via JS
+  // Sobrescreve qualquer style inline do WordPress
+  // -----------------
+  if (document.body.classList.contains('style-moderno')) {
+    document.querySelectorAll('h1').forEach(function(h1) {
+      h1.style.setProperty('color', '#00f5d4', 'important');
+      h1.style.setProperty('-webkit-text-fill-color', '#00f5d4', 'important');
+      h1.style.setProperty('background', 'none', 'important');
+      h1.style.setProperty('background-clip', 'unset', 'important');
+      h1.style.setProperty('-webkit-background-clip', 'unset', 'important');
+    });
+  }
+
+
   const menuToggle = document.querySelector('.menu-toggle');
   const navMenu = document.getElementById('main-menu');
 

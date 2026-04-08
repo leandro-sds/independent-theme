@@ -1,116 +1,136 @@
-# Independent Theme
+\# Independent Theme
 
-**Tema WordPress gratuito, acessível e versátil com 7 estilos visuais.**
 
-Desenvolvido por **Leandro Souza** — uma pessoa cega — para que outras pessoas cegas possam criar sites bonitos para quem enxerga.
 
-![Independent Theme](screenshot.png)
+\*\*Tema moderno, responsivo e acessível para WordPress.\*\*  
 
----
+Desenvolvido por Leandro, o Independent Theme oferece uma base sólida com estilos visuais personalizáveis para diferentes nichos — tudo com performance, semântica e design refinado.
 
-## 🎨 Estilos Visuais
 
-Troque o visual do seu site em segundos, sem mexer em código:
-
-| Estilo | Ideal para |
-|---|---|
-| ⬜ Padrão | Sites institucionais e projetos em geral |
-| 🎧 Neon Pop | Rádios jovens, podcasts, música eletrônica |
-| 📻 Vintage Café | Rádios retrô, jazz, música clássica |
-| ⚽ Campo e Paixão | Futebol, esportes, torcidas |
-| ✝️ Céu e Fé | Igrejas, rádios gospel, ministérios |
-| ✍️ Tinta & Papel | Escritores, blogs literários, jornalismo |
-| 🏛️ Marinelli Drupal | Sites institucionais clássicos |
 
 ---
 
-## ♿ Acessibilidade
 
-Este tema foi construído com acessibilidade como prioridade:
 
-- Navegação completa por teclado
-- Compatível com leitores de tela (NVDA, JAWS, VoiceOver)
-- Contraste WCAG AA em todos os estilos
-- Skip-link para pular ao conteúdo principal
-- `aria-label`, `aria-expanded` e `aria-hidden` implementados corretamente
-- Botões e links com área de toque mínima de 44px (WCAG 2.5.5)
-- Menu hambúrguer com labels dinâmicos ("Abrir menu" / "Fechar menu")
-- Botão de menu e busca ocultos para leitores de tela em desktop
+\## 🎨 Estilos Visuais
 
----
 
-## ⚙️ Recursos do Personalizador
 
-Tudo configurável em **Aparência → Personalizar**, sem código:
+O tema inclui 6 estilos prontos para uso, selecionáveis via Personalizador:
 
-- 🎨 Estilo visual (7 opções)
-- 🖼️ Largura, altura e escala da logo
-- 📐 Layout do cabeçalho (esquerda, centralizado, empilhado)
-- 🔍 Mostrar/ocultar busca no cabeçalho
-- 📅 Ano de fundação (copyright automático: © 2013–2026)
-- 🔗 Redes sociais: WhatsApp, Facebook, Instagram, YouTube
+
+
+\- 🎧 \*\*Neon Pop\*\* — Ideal para rádios jovens e conteúdo vibrante
+
+\- 📻 \*\*Vintage Café\*\* — Perfeito para blogs retrô e culturais
+
+\- ⚽ \*\*Campo e Paixão\*\* — Focado em sites esportivos e futebolísticos
+
+\- ✝️ \*\*Céu e Fé\*\* — Visual leve para sites cristãos e espirituais
+
+\- ✍️ \*\*Tinta \& Papel\*\* — Estilo clássico para escritores e poetas
+
+\- 🧱 \*\*Padrão do Tema\*\* — Visual limpo, moderno e neutro
+
+
 
 ---
 
-## 📥 Instalação
 
-### Pelo painel WordPress
-1. Baixe o arquivo `.zip` em [Releases](../../releases)
-2. Vá em **Aparência → Temas → Adicionar Novo → Enviar tema**
-3. Selecione o `.zip` e clique em **Instalar agora**
-4. Ative o tema
-5. Acesse **Aparência → Personalizar** e escolha seu estilo
 
-### Via Git
-```bash
-cd wp-content/themes/
-git clone https://github.com/seu-usuario/independent-theme.git
-```
+\## 🚀 Recursos
 
----
 
-## 📋 Requisitos
 
-- WordPress 6.5 ou superior
-- PHP 7.4 ou superior
+\- Suporte a logo personalizada (com controle de tamanho)
 
----
+\- Menu principal e áreas de widgets (barra lateral e rodapé)
 
-## 🏛️ Sobre o estilo Marinelli
+\- Ícones sociais: WhatsApp, Facebook, Instagram, YouTube
 
-Uma homenagem ao clássico tema **Marinelli do Drupal 7** — recriado fielmente no WordPress com o azul-aço característico, o laranja no hover do menu, a busca com campo azul e borda branca, e a tipografia Helvetica institucional.
+\- Estilização automática via variáveis CSS
 
-> *"Durante muito tempo, enquanto usava Drupal, o Marinelli foi o tema da Rádio Maior Amor."*
-> — Leandro Souza
+\- Layout responsivo e acessível
+
+\- Trechos otimizados com botão “Leia mais”
+
+\- Posts relacionados por categoria
+
+\- Página de erro 404 personalizada
+
+\- Estilos visuais aplicados via classe no `<body>`
+
+
 
 ---
 
-## 📄 Licença
 
-GNU General Public License v2 ou posterior.
-Veja [LICENSE](LICENSE) para mais detalhes.
 
-Você é livre para usar, modificar e distribuir este tema, desde que mantenha a mesma licença.
+\## 📦 Instalação
 
----
 
-## 🤝 Contribuindo
 
-Contribuições são bem-vindas!
+1\. Faça upload da pasta do tema em `wp-content/themes/independent-theme`
 
-1. Faça um fork do repositório
-2. Crie uma branch: `git checkout -b minha-melhoria`
-3. Faça o commit: `git commit -m 'Adiciona minha melhoria'`
-4. Envie: `git push origin minha-melhoria`
-5. Abra um Pull Request
+2\. Ative o tema no painel do WordPress
 
----
+3\. Vá em \*\*Aparência > Personalizar\*\* para configurar:
 
-## 👤 Autor
+&nbsp;  - Logo
 
-**Leandro Souza**
-- Site: [maioramor.com.br](https://maioramor.com.br)
+&nbsp;  - Estilo visual
+
+&nbsp;  - Redes sociais
+
+
 
 ---
 
-*Feito com ❤️ e muita determinação.*
+
+
+\## 🖼 Screenshot
+
+
+
+Inclua o arquivo `screenshot.png` na raiz do tema para exibir a prévia no painel.
+
+
+
+---
+
+
+
+\## 🧩 Requisitos
+
+
+
+\- WordPress 5.9 ou superior
+
+\- PHP 7.4+
+
+
+
+---
+
+
+
+\## 📄 Licença
+
+
+
+Este tema é distribuído sob a licença \[GPLv2 ou superior](https://www.gnu.org/licenses/gpl-2.0.html).
+
+
+
+---
+
+
+
+\## ✉️ Contato
+
+
+
+Desenvolvido por \*\*Leandro Souza\*\*  
+
+
+

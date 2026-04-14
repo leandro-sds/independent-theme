@@ -2,7 +2,7 @@
 Theme Name: Independent Theme
 Author: Leandro Souza
 Description: Tema moderno, responsivo e acessível com estilos visuais personalizáveis.
-Version: 2.3.0
+Version: 2.4.0
 Requires at least: 6.5
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -247,19 +247,8 @@ article, .widget, .footer-widget {
 .logo img,
 img.custom-logo,
 .ls-logo {
-  /*
-    Acessibilidade: permite AUMENTAR visualmente a logo via Personalizador,
-    mesmo que a imagem original seja menor.
-    - Fallback declarado primeiro para browsers sem suporte a min().
-    - min() sobrescreve em browsers modernos, limitando ao viewport.
-    - Escala via --logo-scale permite upscaling sem trocar o arquivo.
-  */
-  /* Fallback para browsers sem suporte a min() */
   width: calc(var(--logo-max-width) * var(--logo-scale)) !important;
   height: auto !important;
-  max-width: 90vw !important;
-  max-height: calc(var(--logo-max-height) * var(--logo-scale)) !important;
-  /* Modernos: clamp seguro ao viewport */
   max-width: min(calc(var(--logo-max-width) * var(--logo-scale)), 90vw) !important;
   max-height: min(calc(var(--logo-max-height) * var(--logo-scale)), 35vh) !important;
   object-fit: contain;

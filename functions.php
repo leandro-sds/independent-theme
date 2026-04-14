@@ -12,57 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 
-/**
- * Migra configurações do tema anterior (ls-theme) quando o usuário trocar para este tema.
- * Isso dá autonomia: o dono do site não precisa reconfigurar logo/estilos do zero.
- */
-function independent_theme_migrate_from_ls_theme() {
-  $new_stylesheet = get_stylesheet(); // independent-theme
-  $new_option_key = 'theme_mods_' . $new_stylesheet;
-
-  // Se já existem mods neste tema, não sobrescreve.
-  $current = get_option( $new_option_key );
-  if ( is_array( $current ) && ! empty( $current ) ) {
-    return;
-  }
-
-  $old = get_option( 'theme_mods_ls-theme' );
-  if ( ! is_array( $old ) || empty( $old ) ) {
-    return;
-  }
-
-  $map = [
-    // Logo
-    'ls_logo_width'    => 'independent_logo_width',
-    'ls_logo_height'   => 'independent_logo_height',
-    'ls_logo_scale'    => 'independent_logo_scale',
-
-    // Estilo visual
-    'ls_site_style'    => 'independent_site_style',
-
-    // Redes sociais
-    'ls_whatsapp_url'  => 'independent_whatsapp_url',
-    'ls_facebook_url'  => 'independent_facebook_url',
-    'ls_instagram_url' => 'independent_instagram_url',
-    'ls_youtube_url'   => 'independent_youtube_url',
-  ];
-
-  $new = [];
-  foreach ( $map as $old_key => $new_key ) {
-    if ( array_key_exists( $old_key, $old ) ) {
-      $new[ $new_key ] = $old[ $old_key ];
-    }
-  }
-
-  // Preferências do cabeçalho (novas) – defaults acessíveis
-  $new['independent_header_layout'] = 'left';
-  $new['independent_header_show_search'] = 1;
-
-  if ( ! empty( $new ) ) {
-    update_option( $new_option_key, $new );
-  }
-}
-add_action( 'after_switch_theme', 'independent_theme_migrate_from_ls_theme' );
 
 function independent_theme_setup() {
   load_theme_textdomain( 'independent-theme', get_template_directory() . '/languages' );
@@ -174,7 +123,7 @@ function independent_theme_customize_register( $wp_customize ) {
   $wp_customize->add_setting( 'independent_logo_width', [
     'default'           => 320,
     'sanitize_callback' => 'absint',
-    'transport'         => 'postMessage',
+    'transport'         => 'refresh',
   ] );
   $wp_customize->add_control( 'independent_logo_width', [
     'label'       => __( 'Largura máxima da logo (px)', 'independent-theme' ),
@@ -194,7 +143,7 @@ function independent_theme_customize_register( $wp_customize ) {
   $wp_customize->add_setting( 'independent_logo_height', [
     'default'           => 160,
     'sanitize_callback' => 'absint',
-    'transport'         => 'postMessage',
+    'transport'         => 'refresh',
   ] );
   $wp_customize->add_control( 'independent_logo_height', [
     'label'       => __( 'Altura máxima da logo (px)', 'independent-theme' ),
@@ -214,11 +163,11 @@ function independent_theme_customize_register( $wp_customize ) {
   $wp_customize->add_setting( 'independent_logo_scale', [
     'default'           => 100,
     'sanitize_callback' => 'absint',
-    'transport'         => 'postMessage',
+    'transport'         => 'refresh',
   ] );
   $wp_customize->add_control( 'independent_logo_scale', [
     'label'       => __( 'Escala da logo (%)', 'independent-theme' ),
-    'description' => __( 'Amplia ou reduz a logo proporcionalmente além dos limites acima. 100% = tamanho normal. Útil para ampliar sem precisar substituir o arquivo da imagem.', 'independent-theme' ),
+    'description' => __( '100% = tamanho normal. Aumente para ampliar a logo sem precisar substituir o arquivo.', 'independent-theme' ),
     'section'     => $logo_section,
     'type'        => 'number',
     'priority'    => 12,
@@ -598,6 +547,17 @@ function independent_theme_late_style() {
     .header-search-form { align-items: stretch !important; }
     .header-search-form .search-field,
     .header-search-form .search-submit { height: 44px !important; box-sizing: border-box !important; }
+
+    /* Logo: respeita valores do Personalizador */
+    .logo img,
+    img.custom-logo,
+    .custom-logo {
+      width: calc(var(--logo-max-width) * var(--logo-scale)) !important;
+      height: auto !important;
+      max-width: min(calc(var(--logo-max-width) * var(--logo-scale)), 90vw) !important;
+      max-height: min(calc(var(--logo-max-height) * var(--logo-scale)), 35vh) !important;
+      object-fit: contain !important;
+    }
 
     /* Moderno: título h1 em ciano vibrante — compatível com todos os browsers */
     body.style-moderno h1,

@@ -2,7 +2,7 @@
 Theme Name: Independent Theme
 Author: Leandro Souza
 Description: Tema moderno, responsivo e acessível com estilos visuais personalizáveis.
-Version: 2.2.0
+Version: 2.3.0
 Requires at least: 6.5
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -1462,7 +1462,7 @@ input[type="submit"]:hover {
    ========================================================== */
 
 /* Contraste de texto muted em estilos dark */
-body.style-ceuafe      { --muted-text: rgba(215,230,248,0.85); }
+body.style-ceuafe      { --muted-text: #4a5a6a; }
 body.style-neonpop     { --muted-text: #a8b4c4; }
 body.style-vintagecafe { --muted-text: rgba(255,243,220,0.80); }
 body.style-campoepaixao{ --muted-text: rgba(249,250,251,0.82); }
@@ -1973,64 +1973,64 @@ body[class*="style-"] .skip-link:focus-visible {
    Correções visuais por estilo — separação de áreas
    ========================================================== */
 
-/* ── Neon Pop: borda neon entre main e aside, widgets visíveis ── */
+/* ── Neon Pop: magenta + ciano — energia de rádio jovem ── */
 body.style-neonpop main {
-  background-color: #1a2235;
-  border-right: 1px solid rgba(0,191,255,0.20);
+  background-color: #12122a;
+  border-right: 1px solid rgba(255,45,120,0.20);
 }
 body.style-neonpop aside {
-  background-color: #0f1520;
-  border-left: 1px solid rgba(0,191,255,0.15);
+  background-color: #0a0a1a;
+  border-left: 1px solid rgba(255,45,120,0.15);
 }
 body.style-neonpop .widget {
-  background-color: #1a2235;
-  border: 1px solid rgba(0,191,255,0.18);
+  background-color: #12122a;
+  border: 1px solid rgba(255,45,120,0.20);
 }
 body.style-neonpop .site-content {
-  border-left: 1px solid rgba(0,191,255,0.12);
-  border-right: 1px solid rgba(0,191,255,0.12);
+  border-left: 1px solid rgba(255,45,120,0.10);
+  border-right: 1px solid rgba(255,45,120,0.10);
 }
 
-/* ── Vintage Café: separação quente entre áreas ── */
+/* ── Vintage Café: versão clara — creme e marrom ── */
 body.style-vintagecafe main {
-  background-color: #3d2510;
-  border-right: 1px solid rgba(212,175,55,0.20);
+  background-color: #fffaf3;
+  border-right: 1px solid rgba(139,94,26,0.15);
 }
 body.style-vintagecafe aside {
-  background-color: #251508;
-  border-left: 1px solid rgba(212,175,55,0.15);
+  background-color: #ede5d8;
+  border-left: none;
 }
 body.style-vintagecafe .widget {
-  background-color: #3d2510;
-  border: 1px solid rgba(212,175,55,0.22);
+  background-color: #fffaf3;
+  border: 1px solid rgba(139,94,26,0.18);
 }
 
-/* ── Campo e Paixão: distinção clara com borda vermelha sutil ── */
+/* ── Campo e Paixão: versão clara — verde e branco ── */
 body.style-campoepaixao main {
-  background-color: #133d20;
-  border-right: 1px solid rgba(230,0,0,0.18);
+  background-color: #ffffff;
+  border-right: 1px solid rgba(13,51,24,0.12);
 }
 body.style-campoepaixao aside {
-  background-color: #071a0d;
-  border-left: 1px solid rgba(230,0,0,0.12);
+  background-color: #e0efe3;
+  border-left: none;
 }
 body.style-campoepaixao .widget {
-  background-color: #133d20;
-  border: 1px solid rgba(255,255,255,0.10);
+  background-color: #ffffff;
+  border: 1px solid rgba(13,51,24,0.12);
 }
 
 /* ── Céu e Fé: distinção suave com borda dourada ── */
 body.style-ceuafe main {
-  background-color: #1e3460;
-  border-right: 1px solid rgba(201,168,76,0.18);
+  background-color: #ffffff;
+  border-right: 1px solid rgba(201,168,76,0.20);
 }
 body.style-ceuafe aside {
-  background-color: #111e2e;
-  border-left: 1px solid rgba(201,168,76,0.12);
+  background-color: #ddeaf8;
+  border-left: none;
 }
 body.style-ceuafe .widget {
-  background-color: #1e3460;
-  border: 1px solid rgba(201,168,76,0.18);
+  background-color: #ffffff;
+  border: 1px solid rgba(26,58,92,0.12);
 }
 
 /* ── Tinta & Papel: borda marrom entre áreas ── */
@@ -2602,3 +2602,584 @@ body.style-moderno .widget [class*="now"] {
   color: #00f5d4 !important;
   font-weight: 600 !important;
 }
+
+/* ==========================================================
+   Céu e Fé — Paleta renovada (versão clara)
+   Fundo claro, cabeçalho/rodapé azul escuro, dourado nos destaques
+   ========================================================== */
+
+/* Header e rodapé mantêm azul escuro — identidade preservada */
+body.style-ceuafe .site-header {
+  background-color: #1a3a5c;
+}
+
+body.style-ceuafe footer {
+  background-color: #1a3a5c;
+  border-top: 2px solid rgba(201,168,76,0.30);
+}
+
+body.style-ceuafe .site-info,
+body.style-ceuafe .site-info p {
+  color: rgba(232,201,106,0.80);
+  border-top-color: rgba(201,168,76,0.20);
+}
+
+body.style-ceuafe footer a { color: rgba(232,201,106,0.85); }
+body.style-ceuafe footer a:hover { color: #E8C96A; }
+body.style-ceuafe .social-title { color: #E8C96A; }
+body.style-ceuafe .social-links a { color: rgba(232,201,106,0.80); }
+body.style-ceuafe .social-links a:hover { color: #E8C96A; }
+
+/* Fundo da página azul bem claro */
+body.style-ceuafe {
+  background-color: #eef4fb;
+}
+
+/* Títulos em azul escuro — legíveis no fundo claro */
+body.style-ceuafe .entry-title,
+body.style-ceuafe h1,
+body.style-ceuafe h2,
+body.style-ceuafe h3 {
+  color: #1a3a5c;
+}
+
+/* Links em azul médio — contraste WCAG AA no fundo branco */
+body.style-ceuafe a {
+  color: #1a5a9a;
+}
+
+body.style-ceuafe a:hover {
+  color: #1a3a5c;
+}
+
+/* Blockquote com moldura azul claro e fundo levemente azulado */
+body.style-ceuafe .post-content blockquote,
+body.style-ceuafe .page-content blockquote {
+  border-left: 4px solid #C9A84C;
+  background: #ddeaf8;
+  color: #1a2535;
+  border-radius: 0 8px 8px 0;
+}
+
+/* Títulos de widget em azul escuro */
+body.style-ceuafe .widget h3,
+body.style-ceuafe .widget h2 {
+  color: #1a3a5c;
+  border-bottom-color: rgba(201,168,76,0.35);
+}
+
+/* Site content com fundo claro */
+body.style-ceuafe .site-content {
+  background-color: #eef4fb;
+}
+
+/* Textos do conteúdo em cor escura — máxima legibilidade */
+body.style-ceuafe .post-content p,
+body.style-ceuafe .page-content p,
+body.style-ceuafe .post-content li,
+body.style-ceuafe .page-content li {
+  color: #1a2535;
+}
+
+/* Botão buscar em dourado */
+body.style-ceuafe .header-search-form .search-submit {
+  background-color: #C9A84C;
+  color: #ffffff;
+  border: none;
+}
+
+body.style-ceuafe .header-search-form .search-submit:hover {
+  background-color: #b8963e;
+  filter: none;
+}
+
+/* Paginação */
+body.style-ceuafe .pagination .page-numbers {
+  border-color: rgba(26,58,92,0.20);
+  color: #1a5a9a;
+}
+
+body.style-ceuafe .pagination .current,
+body.style-ceuafe .pagination .page-numbers:hover {
+  background-color: #1a3a5c;
+  color: #ffffff;
+  border-color: #1a3a5c;
+}
+
+/* ==========================================================
+   Vintage Café — Versão Clara
+   Creme e marrom — atmosfera de livraria e café
+   ========================================================== */
+
+body.style-vintagecafe {
+  background-color: #f5efe6;
+}
+
+body.style-vintagecafe .site-header {
+  background-color: #2e1a0e;
+}
+
+body.style-vintagecafe footer {
+  background-color: #2e1a0e;
+  border-top: 2px solid rgba(212,175,55,0.30);
+}
+
+body.style-vintagecafe .site-info,
+body.style-vintagecafe .site-info p {
+  color: rgba(245,222,179,0.80);
+  border-top-color: rgba(212,175,55,0.20);
+}
+
+body.style-vintagecafe footer a { color: rgba(245,222,179,0.85); }
+body.style-vintagecafe footer a:hover { color: #F5DEB3; }
+body.style-vintagecafe .social-title { color: #F5DEB3; }
+body.style-vintagecafe .social-links a { color: rgba(245,222,179,0.80); }
+
+body.style-vintagecafe h1,
+body.style-vintagecafe h2,
+body.style-vintagecafe h3,
+body.style-vintagecafe .entry-title {
+  color: #2e1a0e;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+body.style-vintagecafe a {
+  color: #7a3e10;
+  text-decoration: underline;
+}
+
+body.style-vintagecafe a:hover {
+  color: #2e1a0e;
+}
+
+body.style-vintagecafe .post-content p,
+body.style-vintagecafe .page-content p,
+body.style-vintagecafe .post-content li,
+body.style-vintagecafe .page-content li {
+  color: #1a0f00;
+  line-height: 1.80;
+}
+
+body.style-vintagecafe .post-content blockquote,
+body.style-vintagecafe .page-content blockquote {
+  border-left: 4px solid #D4AF37;
+  background: #f5efe6;
+  color: #2e1a0e;
+  border-radius: 0 6px 6px 0;
+}
+
+body.style-vintagecafe .widget h3,
+body.style-vintagecafe .widget h2 {
+  color: #2e1a0e;
+  border-bottom-color: rgba(212,175,55,0.35);
+}
+
+body.style-vintagecafe .header-search-form .search-submit {
+  background-color: #D4AF37;
+  color: #1a0f00;
+  border: none;
+}
+
+body.style-vintagecafe .header-search-form .search-submit:hover {
+  background-color: #b8963e;
+  filter: none;
+}
+
+/* ==========================================================
+   Campo e Paixão — Versão Clara
+   Verde e branco — energia de estádio ao ar livre
+   ========================================================== */
+
+body.style-campoepaixao {
+  background-color: #f0f7f1;
+}
+
+body.style-campoepaixao .site-header {
+  background-color: #0d3318;
+}
+
+body.style-campoepaixao footer {
+  background-color: #0d3318;
+  border-top: 2px solid rgba(204,0,0,0.40);
+}
+
+body.style-campoepaixao .site-info,
+body.style-campoepaixao .site-info p {
+  color: rgba(255,255,255,0.75);
+  border-top-color: rgba(204,0,0,0.25);
+}
+
+body.style-campoepaixao footer a { color: rgba(255,255,255,0.80); }
+body.style-campoepaixao footer a:hover { color: #ffffff; }
+body.style-campoepaixao .social-title { color: #ffffff; }
+body.style-campoepaixao .social-links a { color: rgba(255,255,255,0.80); }
+
+body.style-campoepaixao h1,
+body.style-campoepaixao h2,
+body.style-campoepaixao h3,
+body.style-campoepaixao .entry-title {
+  color: #0d3318;
+  font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+  font-weight: 800;
+}
+
+body.style-campoepaixao a {
+  color: #0d5c28;
+  text-decoration: none;
+}
+
+body.style-campoepaixao a:hover {
+  color: #cc0000;
+}
+
+body.style-campoepaixao .post-content p,
+body.style-campoepaixao .page-content p,
+body.style-campoepaixao .post-content li,
+body.style-campoepaixao .page-content li {
+  color: #0a1f0f;
+  line-height: 1.75;
+}
+
+body.style-campoepaixao .post-content blockquote,
+body.style-campoepaixao .page-content blockquote {
+  border-left: 4px solid #cc0000;
+  background: #e0efe3;
+  color: #0a1f0f;
+  border-radius: 0 6px 6px 0;
+}
+
+body.style-campoepaixao .widget h3,
+body.style-campoepaixao .widget h2 {
+  color: #0d3318;
+  border-bottom-color: rgba(204,0,0,0.30);
+}
+
+body.style-campoepaixao .header-search-form .search-submit {
+  background-color: #cc0000;
+  color: #ffffff;
+  border: none;
+}
+
+body.style-campoepaixao .header-search-form .search-submit:hover {
+  background-color: #aa0000;
+  filter: none;
+}
+
+/* ==========================================================
+   Neon Pop — Magenta + Ciano
+   Energia de rádio jovem, show e festival
+   ========================================================== */
+
+body.style-neonpop .site-header {
+  background: linear-gradient(135deg, #0d0d1a, #1a0a2a);
+  border-bottom: 2px solid rgba(255,45,120,0.40);
+}
+
+body.style-neonpop .site-title .site-name a {
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(255,45,120,0.60);
+}
+
+body.style-neonpop footer {
+  background: linear-gradient(135deg, #0d0d1a, #07070f);
+  border-top: 2px solid rgba(255,45,120,0.30);
+}
+
+body.style-neonpop .site-info,
+body.style-neonpop .site-info p {
+  color: rgba(200,200,255,0.70);
+  border-top-color: rgba(255,45,120,0.20);
+}
+
+body.style-neonpop footer a { color: rgba(0,207,255,0.80); }
+body.style-neonpop footer a:hover { color: #00cfff; }
+body.style-neonpop .social-title { color: #ff2d78; }
+body.style-neonpop .social-links a { color: rgba(0,207,255,0.80); }
+
+body.style-neonpop h1,
+body.style-neonpop h2,
+body.style-neonpop h3,
+body.style-neonpop .entry-title {
+  color: #ff2d78;
+  font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+  font-weight: 800;
+}
+
+body.style-neonpop .entry-title a {
+  color: #ff2d78;
+  text-decoration: none;
+}
+
+body.style-neonpop .entry-title a:hover {
+  color: #00cfff;
+}
+
+body.style-neonpop a {
+  color: #00cfff;
+}
+
+body.style-neonpop a:hover {
+  color: #ff2d78;
+}
+
+body.style-neonpop .post-content blockquote,
+body.style-neonpop .page-content blockquote {
+  border-left: 4px solid #ff2d78;
+  background: rgba(255,45,120,0.06);
+  color: #E8E8F8;
+  border-radius: 0 6px 6px 0;
+}
+
+body.style-neonpop .widget h3,
+body.style-neonpop .widget h2 {
+  color: #ff2d78;
+  border-bottom-color: rgba(255,45,120,0.30);
+}
+
+body.style-neonpop .header-search-form .search-submit {
+  background: linear-gradient(135deg, #ff2d78, #c0135a);
+  color: #ffffff;
+  border: none;
+}
+
+body.style-neonpop .header-search-form .search-submit:hover {
+  background: linear-gradient(135deg, #00cfff, #0099cc);
+  filter: none;
+}
+
+/* Muted text Neon Pop e Vintage Café atualizados */
+body.style-neonpop     { --muted-text: #8888aa; }
+body.style-vintagecafe { --muted-text: #7a6040; }
+body.style-campoepaixao{ --muted-text: #4a6a52; }
+
+/* ==========================================================
+   Céu e Fé — Renovação completa v2
+   Moderno, respirado, acessível e espiritual
+   ========================================================== */
+
+/* ── Fontes modernas via Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+/* ── Body e fundo ── */
+body.style-ceuafe {
+  background-color: #eaf2fb;
+  font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.80;
+}
+
+/* ── Header com degradê azul profundo para azul médio ── */
+body.style-ceuafe .site-header {
+  background: linear-gradient(135deg, #0d2b4a 0%, #1a4a7a 100%);
+  padding: 20px 0 16px;
+  border-bottom: none;
+  box-shadow: 0 2px 20px rgba(13,43,74,0.25);
+}
+
+/* Nome do site em branco limpo com Poppins */
+body.style-ceuafe .site-title .site-name a {
+  color: #ffffff !important;
+  font-family: 'Poppins', 'Montserrat', sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em !important;
+  text-decoration: none !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+body.style-ceuafe .site-title .site-description {
+  color: rgba(255,255,255,0.78) !important;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  letter-spacing: 0.02em;
+}
+
+/* ── Menu moderno com mais respiro ── */
+body.style-ceuafe .primary-nav .menu a {
+  color: rgba(255,255,255,0.90) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 0.95rem !important;
+  letter-spacing: 0.02em !important;
+  padding: 6px 14px !important;
+  border-radius: 6px !important;
+  transition: background 0.20s ease, color 0.20s ease !important;
+}
+
+body.style-ceuafe .primary-nav .menu a:hover {
+  background: rgba(255,255,255,0.12) !important;
+  color: #ffffff !important;
+}
+
+/* Item ativo — linha fina embaixo, sem fundo pesado */
+body.style-ceuafe .primary-nav .menu li.current-menu-item > a,
+body.style-ceuafe .primary-nav .menu li.current_page_item > a {
+  color: #ffffff !important;
+  background: rgba(255,255,255,0.10) !important;
+  border-bottom: 2px solid #e07b39 !important;
+  border-radius: 6px 6px 0 0 !important;
+  font-weight: 600 !important;
+}
+
+/* ── Campo de busca integrado ── */
+body.style-ceuafe .header-search-form .search-field {
+  background: rgba(255,255,255,0.12) !important;
+  border: 1px solid rgba(255,255,255,0.25) !important;
+  color: #ffffff !important;
+  border-radius: 8px 0 0 8px !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+body.style-ceuafe .header-search-form .search-field::placeholder {
+  color: rgba(255,255,255,0.55) !important;
+}
+
+body.style-ceuafe .header-search-form .search-field:focus {
+  background: rgba(255,255,255,0.20) !important;
+  border-color: rgba(224,123,57,0.60) !important;
+  outline: none !important;
+}
+
+body.style-ceuafe .header-search-form .search-submit {
+  background: #e07b39 !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 0 8px 8px 0 !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
+  transition: background 0.20s ease, transform 0.20s ease !important;
+}
+
+body.style-ceuafe .header-search-form .search-submit:hover {
+  background: #c96828 !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+/* ── Área de conteúdo ── */
+body.style-ceuafe main {
+  background-color: #ffffff !important;
+  border-right: 1px solid rgba(13,43,74,0.08) !important;
+}
+
+body.style-ceuafe aside {
+  background-color: #deeaf8 !important;
+  border-left: none !important;
+}
+
+/* ── Cards da sidebar modernos ── */
+body.style-ceuafe .widget {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(13,43,74,0.10) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 12px rgba(13,43,74,0.08) !important;
+  padding: 1.5rem !important;
+}
+
+/* Títulos dos widgets — Poppins, coral */
+body.style-ceuafe .widget h3,
+body.style-ceuafe .widget h2 {
+  font-family: 'Poppins', 'Inter', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 0.80rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: #0d2b4a !important;
+  border-bottom: 2px solid #e07b39 !important;
+  padding-bottom: 8px !important;
+  margin-bottom: 1rem !important;
+  -webkit-text-fill-color: #0d2b4a !important;
+  background: none !important;
+}
+
+/* Versículo com tipografia maior e referência menor */
+body.style-ceuafe .widget blockquote,
+body.style-ceuafe .widget p {
+  font-size: 1rem !important;
+  line-height: 1.70 !important;
+  color: #1a2535 !important;
+}
+
+/* ── Títulos de conteúdo — Poppins, azul profundo ── */
+body.style-ceuafe h1,
+body.style-ceuafe h2,
+body.style-ceuafe h3,
+body.style-ceuafe h4,
+body.style-ceuafe .entry-title {
+  font-family: 'Poppins', 'Montserrat', sans-serif !important;
+  font-weight: 700 !important;
+  color: #0d2b4a !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.25 !important;
+  -webkit-text-fill-color: #0d2b4a !important;
+  background: none !important;
+}
+
+/* ── Texto corrido — Inter, espaçamento generoso ── */
+body.style-ceuafe .post-content p,
+body.style-ceuafe .page-content p,
+body.style-ceuafe .post-content li,
+body.style-ceuafe .page-content li {
+  font-family: 'Inter', 'Roboto', sans-serif !important;
+  font-size: 1rem !important;
+  line-height: 1.85 !important;
+  color: #1a2535 !important;
+}
+
+/* ── Links ── */
+body.style-ceuafe a {
+  color: #1a6aaa !important;
+  text-decoration: none !important;
+  transition: color 0.18s ease !important;
+}
+
+body.style-ceuafe a:hover {
+  color: #0d2b4a !important;
+  text-decoration: underline !important;
+}
+
+/* ── Blockquote — versículo em destaque ── */
+body.style-ceuafe .post-content blockquote,
+body.style-ceuafe .page-content blockquote {
+  border-left: 3px solid #e07b39 !important;
+  background: #f0f6fd !important;
+  color: #1a2535 !important;
+  border-radius: 0 10px 10px 0 !important;
+  font-style: italic !important;
+  font-size: 1.05rem !important;
+}
+
+/* ── Rodapé ── */
+body.style-ceuafe footer {
+  background: linear-gradient(135deg, #0d2b4a, #1a3a5c) !important;
+  border-top: 2px solid rgba(224,123,57,0.30) !important;
+}
+
+body.style-ceuafe .site-info,
+body.style-ceuafe .site-info p {
+  color: rgba(255,255,255,0.70) !important;
+  border-top-color: rgba(255,255,255,0.10) !important;
+}
+
+body.style-ceuafe footer a { color: rgba(255,255,255,0.80) !important; }
+body.style-ceuafe footer a:hover { color: #ffffff !important; }
+body.style-ceuafe .social-title { color: #ffffff !important; }
+body.style-ceuafe .social-links a { color: rgba(255,255,255,0.80) !important; }
+body.style-ceuafe .social-links a:hover { color: #e07b39 !important; }
+
+/* ── Paginação ── */
+body.style-ceuafe .pagination .page-numbers {
+  border-color: rgba(13,43,74,0.18) !important;
+  color: #1a6aaa !important;
+  border-radius: 8px !important;
+}
+
+body.style-ceuafe .pagination .current,
+body.style-ceuafe .pagination .page-numbers:hover {
+  background-color: #0d2b4a !important;
+  color: #ffffff !important;
+  border-color: #0d2b4a !important;
+}
+
+/* ── Muted text atualizado ── */
+body.style-ceuafe { --muted-text: #4a5e72; }

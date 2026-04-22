@@ -2,7 +2,7 @@
 Theme Name: Independent Theme
 Author: Leandro Souza
 Description: Tema moderno, responsivo e acessível com estilos visuais personalizáveis.
-Version: 2.4.0
+Version: 2.5.0
 Requires at least: 6.5
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -120,7 +120,7 @@ img {
 .site-header{
   background-color: var(--header-bg);
   color: var(--header-fg);
-  padding: 16px 0 12px;
+  padding: 10px 0 8px;
   border-bottom: 1px solid var(--header-border);
   transition: background-color var(--transition-fast);
 }
@@ -801,7 +801,7 @@ article:hover {
 }
 
 .primary-nav{
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 .primary-nav .menu{
@@ -816,7 +816,7 @@ article:hover {
 .primary-nav .menu a{
   display:inline-flex;
   align-items:center;
-  padding: 8px 14px;
+  padding: 6px 14px;
   border-radius: var(--radius-sm);
   color: rgba(255,255,255,0.90);
   text-decoration:none;
@@ -2960,7 +2960,7 @@ body.style-ceuafe {
 /* ── Header com degradê azul profundo para azul médio ── */
 body.style-ceuafe .site-header {
   background: linear-gradient(135deg, #0d2b4a 0%, #1a4a7a 100%);
-  padding: 20px 0 16px;
+  padding: 10px 0 8px;
   border-bottom: none;
   box-shadow: 0 2px 20px rgba(13,43,74,0.25);
 }

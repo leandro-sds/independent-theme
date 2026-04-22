@@ -242,19 +242,53 @@ function independent_theme_customize_register( $wp_customize ) {
     'priority' => 40,
   ] );
 
-  $social_networks = [ 'whatsapp', 'facebook', 'instagram', 'youtube' ];
-  foreach ( $social_networks as $network ) {
-    $wp_customize->add_setting( "independent_{$network}_url", [
-      'default'           => '',
-      'sanitize_callback' => 'esc_url_raw',
-    ] );
+  // WhatsApp — número com código do país
+  $wp_customize->add_setting( 'independent_whatsapp_url', [
+    'default'           => '',
+    'sanitize_callback' => 'sanitize_text_field',
+  ] );
+  $wp_customize->add_control( 'independent_whatsapp_url', [
+    'label'       => __( 'WhatsApp', 'independent-theme' ),
+    'description' => __( 'Apenas os números com código do país. Ex.: 5544997540049', 'independent-theme' ),
+    'section'     => 'independent_social_section',
+    'type'        => 'text',
+  ] );
 
-    $wp_customize->add_control( "independent_{$network}_url", [
-      'label'   => ucfirst( $network ) . ' URL',
-      'section' => 'independent_social_section',
-      'type'    => 'url',
-    ] );
-  }
+  // Facebook — nome de usuário
+  $wp_customize->add_setting( 'independent_facebook_url', [
+    'default'           => '',
+    'sanitize_callback' => 'sanitize_text_field',
+  ] );
+  $wp_customize->add_control( 'independent_facebook_url', [
+    'label'       => __( 'Facebook', 'independent-theme' ),
+    'description' => __( 'Apenas o nome de usuário. Ex.: radiomaioramoroficial', 'independent-theme' ),
+    'section'     => 'independent_social_section',
+    'type'        => 'text',
+  ] );
+
+  // Instagram — nome de usuário
+  $wp_customize->add_setting( 'independent_instagram_url', [
+    'default'           => '',
+    'sanitize_callback' => 'sanitize_text_field',
+  ] );
+  $wp_customize->add_control( 'independent_instagram_url', [
+    'label'       => __( 'Instagram', 'independent-theme' ),
+    'description' => __( 'Apenas o nome de usuário. Ex.: radiomaioramoroficial', 'independent-theme' ),
+    'section'     => 'independent_social_section',
+    'type'        => 'text',
+  ] );
+
+  // YouTube — nome do canal
+  $wp_customize->add_setting( 'independent_youtube_url', [
+    'default'           => '',
+    'sanitize_callback' => 'sanitize_text_field',
+  ] );
+  $wp_customize->add_control( 'independent_youtube_url', [
+    'label'       => __( 'YouTube', 'independent-theme' ),
+    'description' => __( 'Nome do canal com ou sem @. Ex.: @radiomaioramor', 'independent-theme' ),
+    'section'     => 'independent_social_section',
+    'type'        => 'text',
+  ] );
 
   // Estilo visual
   $wp_customize->add_section( 'independent_style_section', [

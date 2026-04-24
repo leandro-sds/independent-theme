@@ -2,7 +2,7 @@
 Theme Name: Independent Theme
 Author: Leandro Souza
 Description: Tema moderno, responsivo e acessível com estilos visuais personalizáveis.
-Version: 2.5.0
+Version: 2.6.0
 Requires at least: 6.5
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -3172,3 +3172,1720 @@ body.style-ceuafe .pagination .page-numbers:hover {
 
 /* ── Muted text atualizado ── */
 body.style-ceuafe { --muted-text: #4a5e72; }
+
+/* ==========================================================
+   Céu e Fé — Refinamentos Visuais v2
+   Animações suaves e elegantes — sem carnaval 🎨
+   ========================================================== */
+
+/* ── 1. Header com efeito aurora — luz se movendo suavemente ── */
+@keyframes ceuafeAurora {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body.style-ceuafe .site-header {
+  background: linear-gradient(
+    135deg,
+    #0d2b4a 0%,
+    #1a4a7a 35%,
+    #0d3860 65%,
+    #0d2b4a 100%
+  ) !important;
+  background-size: 300% 300% !important;
+  animation: ceuafeAurora 12s ease infinite !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-ceuafe .site-header {
+    animation: none !important;
+    background: linear-gradient(135deg, #0d2b4a 0%, #1a4a7a 100%) !important;
+    background-size: 100% 100% !important;
+  }
+}
+
+/* ── 2. Títulos com brilho coral suave ao entrar ── */
+@keyframes ceuafeTitleGlow {
+  0%   { text-shadow: none; opacity: 0; transform: translateY(12px); }
+  60%  { text-shadow: 0 0 20px rgba(224,123,57,0.25); opacity: 1; transform: translateY(0); }
+  100% { text-shadow: none; opacity: 1; transform: translateY(0); }
+}
+
+body.style-ceuafe .entry-title,
+body.style-ceuafe .post-content h2,
+body.style-ceuafe .page-content h2 {
+  animation: ceuafeTitleGlow 0.8s ease both;
+}
+
+body.style-ceuafe .post-content h3,
+body.style-ceuafe .page-content h3 {
+  animation: ceuafeTitleGlow 0.8s ease 0.1s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-ceuafe .entry-title,
+  body.style-ceuafe .post-content h2,
+  body.style-ceuafe .post-content h3,
+  body.style-ceuafe .page-content h2,
+  body.style-ceuafe .page-content h3 {
+    animation: none !important;
+  }
+}
+
+/* ── 3. Widgets com pulso coral suave no topo ── */
+@keyframes ceuafeWidgetPulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1.0; }
+}
+
+body.style-ceuafe .widget {
+  position: relative;
+  overflow: hidden;
+}
+
+body.style-ceuafe .widget::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent,
+    #e07b39,
+    transparent
+  );
+  border-radius: 50%;
+  animation: ceuafeWidgetPulse 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+body.style-ceuafe .widget h3,
+body.style-ceuafe .widget h2 {
+  border-bottom: 2px solid #e07b39 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-ceuafe .widget::before {
+    animation: none !important;
+    opacity: 0.6;
+  }
+}
+
+/* ── 4. Blockquote com destaque especial para versículos ── */
+body.style-ceuafe .post-content blockquote,
+body.style-ceuafe .page-content blockquote {
+  border-left: 4px solid #e07b39 !important;
+  background: linear-gradient(
+    135deg,
+    rgba(224,123,57,0.06) 0%,
+    rgba(13,43,74,0.06) 100%
+  ) !important;
+  border-radius: 0 12px 12px 0 !important;
+  padding: 1.4rem 1.6rem !important;
+  font-style: italic !important;
+  font-size: 1.06rem !important;
+  line-height: 1.80 !important;
+  color: #1a2535 !important;
+  box-shadow: 0 2px 16px rgba(224,123,57,0.08) !important;
+  position: relative;
+}
+
+/* Aspas decorativas no blockquote */
+body.style-ceuafe .post-content blockquote::before,
+body.style-ceuafe .page-content blockquote::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 16px;
+  font-size: 4rem;
+  color: rgba(224,123,57,0.20);
+  font-family: Georgia, serif;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* ── 5. Botões com hover brilhante e suave ── */
+@keyframes ceuafeButtonGlow {
+  0%   { box-shadow: 0 0 0 rgba(224,123,57,0); }
+  100% { box-shadow: 0 4px 20px rgba(224,123,57,0.35); }
+}
+
+body.style-ceuafe .header-search-form .search-submit:hover {
+  background: #c96828 !important;
+  animation: ceuafeButtonGlow 0.3s ease forwards !important;
+  transform: translateY(-1px) !important;
+}
+
+body.style-ceuafe .read-more:hover {
+  background: #c96828 !important;
+  box-shadow: 0 4px 20px rgba(224,123,57,0.35) !important;
+  transform: translateY(-2px) !important;
+}
+
+body.style-ceuafe .pagination .current,
+body.style-ceuafe .pagination .page-numbers:hover {
+  box-shadow: 0 2px 12px rgba(224,123,57,0.25) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-ceuafe .header-search-form .search-submit:hover,
+  body.style-ceuafe .read-more:hover {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* ── Links no conteúdo com sublinhado coral animado ── */
+body.style-ceuafe .post-content a,
+body.style-ceuafe .page-content a {
+  color: #1a6aaa !important;
+  text-decoration: none !important;
+  background-image: linear-gradient(#e07b39, #e07b39) !important;
+  background-size: 0% 1px !important;
+  background-repeat: no-repeat !important;
+  background-position: left bottom !important;
+  transition: background-size 0.3s ease, color 0.2s ease !important;
+  padding-bottom: 1px !important;
+}
+
+body.style-ceuafe .post-content a:hover,
+body.style-ceuafe .page-content a:hover {
+  color: #0d2b4a !important;
+  background-size: 100% 1px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-ceuafe .post-content a,
+  body.style-ceuafe .page-content a {
+    text-decoration: underline !important;
+    background-image: none !important;
+  }
+}
+
+/* ==========================================================
+   Marinelli — Refinamentos Visuais v2
+   Clássico, institucional, elegante — sem exageros
+   ========================================================== */
+
+/* ── 1. Header com profundidade sólida ── */
+body.style-marinelli .site-header {
+  background: linear-gradient(
+    180deg,
+    #054b81 0%,
+    #043d6a 100%
+  ) !important;
+  border-bottom: 3px solid #17293d !important;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.30) !important;
+}
+
+/* ── 2. Linha laranja que se expande ao carregar ── */
+@keyframes marinelliLine {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+body.style-marinelli .site-header::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0;
+  background: #f97e05;
+  animation: marinelliLine 0.8s ease forwards;
+  margin-top: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-marinelli .site-header::after {
+    animation: none !important;
+    width: 100% !important;
+  }
+}
+
+/* ── 3. Menu hover com cortina laranja subindo ── */
+body.style-marinelli .primary-nav .menu a {
+  position: relative !important;
+  overflow: hidden !important;
+  transition: color 0.25s ease !important;
+}
+
+body.style-marinelli .primary-nav .menu a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: rgba(249,126,5,0.15);
+  transition: height 0.25s ease;
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+}
+
+body.style-marinelli .primary-nav .menu a:hover::before {
+  height: 100%;
+}
+
+body.style-marinelli .primary-nav .menu a:hover {
+  color: #f97e05 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-marinelli .primary-nav .menu a::before {
+    display: none !important;
+  }
+}
+
+/* ── 4. Títulos com entrada sólida — como carimbo ── */
+@keyframes marinelliStamp {
+  0%   { opacity: 0; transform: translateY(8px); letter-spacing: 0.05em; }
+  100% { opacity: 1; transform: translateY(0); letter-spacing: normal; }
+}
+
+body.style-marinelli .entry-title,
+body.style-marinelli .post-content h2,
+body.style-marinelli .page-content h2 {
+  animation: marinelliStamp 0.5s ease both !important;
+}
+
+body.style-marinelli .post-content h3,
+body.style-marinelli .page-content h3 {
+  animation: marinelliStamp 0.5s ease 0.1s both !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-marinelli .entry-title,
+  body.style-marinelli .post-content h2,
+  body.style-marinelli .post-content h3,
+  body.style-marinelli .page-content h2,
+  body.style-marinelli .page-content h3 {
+    animation: none !important;
+  }
+}
+
+/* ── 5. Blockquote com estilo editorial ── */
+body.style-marinelli .post-content blockquote,
+body.style-marinelli .page-content blockquote {
+  border-left: 5px solid #f97e05 !important;
+  background: #f5f7fa !important;
+  border-radius: 0 !important;
+  padding: 1.4rem 1.8rem !important;
+  font-style: italic !important;
+  font-family: Georgia, 'Times New Roman', serif !important;
+  font-size: 1.05rem !important;
+  line-height: 1.75 !important;
+  color: #1a2535 !important;
+  box-shadow: inset 0 0 0 1px rgba(249,126,5,0.10) !important;
+  position: relative !important;
+}
+
+body.style-marinelli .post-content blockquote::before,
+body.style-marinelli .page-content blockquote::before {
+  content: '"';
+  position: absolute;
+  top: -8px;
+  left: 14px;
+  font-size: 3.5rem;
+  color: rgba(249,126,5,0.22);
+  font-family: Georgia, serif;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* ── Botões hover mais expressivos ── */
+body.style-marinelli .header-search-form .search-submit:hover {
+  background: #e06a00 !important;
+  box-shadow: 0 3px 12px rgba(249,126,5,0.30) !important;
+  transform: translateY(-1px) !important;
+}
+
+body.style-marinelli .read-more:hover {
+  background: #e06a00 !important;
+  box-shadow: 0 3px 12px rgba(249,126,5,0.30) !important;
+  transform: translateY(-2px) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-marinelli .header-search-form .search-submit:hover,
+  body.style-marinelli .read-more:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* ── Widgets com linha laranja no topo ── */
+body.style-marinelli .widget {
+  position: relative;
+  overflow: hidden;
+}
+
+body.style-marinelli .widget::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #f97e05, transparent);
+  pointer-events: none;
+}
+
+body.style-marinelli .widget h3,
+body.style-marinelli .widget h2 {
+  border-bottom: 2px solid #f97e05 !important;
+  padding-bottom: 8px !important;
+}
+
+/* ==========================================================
+   Campo e Paixão — Refinamentos Visuais v2
+   Força, energia e paixão — sem exageros
+   ========================================================== */
+
+/* ── 1. Header com profundidade de estádio ── */
+body.style-campoepaixao .site-header {
+  background: linear-gradient(
+    180deg,
+    #0d3318 0%,
+    #082610 100%
+  ) !important;
+  border-bottom: 3px solid #051a0a !important;
+  box-shadow: 0 3px 16px rgba(0,0,0,0.35) !important;
+}
+
+/* ── 2. Linha vermelha que se expande ao carregar ── */
+@keyframes campoLine {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+body.style-campoepaixao .site-header::after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, #cc0000, #ff3333);
+  animation: campoLine 0.7s ease forwards;
+  margin-top: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-campoepaixao .site-header::after {
+    animation: none !important;
+    width: 100% !important;
+  }
+}
+
+/* ── 3. Menu hover com energia — fundo vermelho subindo ── */
+body.style-campoepaixao .primary-nav .menu a {
+  position: relative !important;
+  overflow: hidden !important;
+  transition: color 0.22s ease !important;
+}
+
+body.style-campoepaixao .primary-nav .menu a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: rgba(204,0,0,0.18);
+  transition: height 0.22s ease;
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+}
+
+body.style-campoepaixao .primary-nav .menu a:hover::before {
+  height: 100%;
+}
+
+body.style-campoepaixao .primary-nav .menu a:hover {
+  color: #ffffff !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-campoepaixao .primary-nav .menu a::before {
+    display: none !important;
+  }
+}
+
+/* ── 4. Títulos com entrada de impacto ── */
+@keyframes campoImpact {
+  0%   { opacity: 0; transform: translateY(16px) scale(0.97); }
+  60%  { transform: translateY(-2px) scale(1.01); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+body.style-campoepaixao .entry-title,
+body.style-campoepaixao .post-content h2,
+body.style-campoepaixao .page-content h2 {
+  animation: campoImpact 0.5s ease both !important;
+}
+
+body.style-campoepaixao .post-content h3,
+body.style-campoepaixao .page-content h3 {
+  animation: campoImpact 0.5s ease 0.1s both !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-campoepaixao .entry-title,
+  body.style-campoepaixao .post-content h2,
+  body.style-campoepaixao .post-content h3,
+  body.style-campoepaixao .page-content h2,
+  body.style-campoepaixao .page-content h3 {
+    animation: none !important;
+  }
+}
+
+/* ── 5. Blockquote com estilo esportivo ── */
+body.style-campoepaixao .post-content blockquote,
+body.style-campoepaixao .page-content blockquote {
+  border-left: 5px solid #cc0000 !important;
+  background: linear-gradient(
+    135deg,
+    rgba(204,0,0,0.04) 0%,
+    rgba(13,51,24,0.04) 100%
+  ) !important;
+  border-radius: 0 10px 10px 0 !important;
+  padding: 1.4rem 1.8rem !important;
+  font-style: italic !important;
+  font-size: 1.05rem !important;
+  line-height: 1.75 !important;
+  color: #0a1f0f !important;
+  position: relative !important;
+  box-shadow: 0 2px 12px rgba(204,0,0,0.08) !important;
+}
+
+body.style-campoepaixao .post-content blockquote::before,
+body.style-campoepaixao .page-content blockquote::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 14px;
+  font-size: 3.5rem;
+  color: rgba(204,0,0,0.18);
+  font-family: Georgia, serif;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* ── 6. Widgets com faixa vermelha no topo ── */
+body.style-campoepaixao .widget {
+  position: relative;
+  overflow: hidden;
+}
+
+body.style-campoepaixao .widget::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #cc0000, #ff3333, transparent);
+  pointer-events: none;
+}
+
+body.style-campoepaixao .widget h3,
+body.style-campoepaixao .widget h2 {
+  border-bottom: 2px solid #cc0000 !important;
+  padding-bottom: 8px !important;
+  color: #0d3318 !important;
+  -webkit-text-fill-color: #0d3318 !important;
+}
+
+/* ── 7. Botões hover com elevação ── */
+body.style-campoepaixao .header-search-form .search-submit:hover {
+  background: #aa0000 !important;
+  box-shadow: 0 4px 16px rgba(204,0,0,0.35) !important;
+  transform: translateY(-1px) !important;
+}
+
+body.style-campoepaixao .read-more:hover {
+  background: #aa0000 !important;
+  box-shadow: 0 4px 16px rgba(204,0,0,0.35) !important;
+  transform: translateY(-2px) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-campoepaixao .header-search-form .search-submit:hover,
+  body.style-campoepaixao .read-more:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* ── Links com sublinhado vermelho animado ── */
+body.style-campoepaixao .post-content a,
+body.style-campoepaixao .page-content a {
+  color: #0d5c28 !important;
+  text-decoration: none !important;
+  background-image: linear-gradient(#cc0000, #cc0000) !important;
+  background-size: 0% 2px !important;
+  background-repeat: no-repeat !important;
+  background-position: left bottom !important;
+  transition: background-size 0.3s ease, color 0.2s ease !important;
+  padding-bottom: 1px !important;
+}
+
+body.style-campoepaixao .post-content a:hover,
+body.style-campoepaixao .page-content a:hover {
+  color: #cc0000 !important;
+  background-size: 100% 2px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-campoepaixao .post-content a,
+  body.style-campoepaixao .page-content a {
+    text-decoration: underline !important;
+    background-image: none !important;
+  }
+}
+
+/* ==========================================================
+   Tinta & Papel — Refinamentos Visuais v2
+   Literário, editorial, introspectivo — suave como virar uma página
+   ========================================================== */
+
+/* ── 1. Header com profundidade de couro ── */
+body.style-tintaepapel .site-header {
+  background: linear-gradient(
+    180deg,
+    #2C3E50 0%,
+    #1a2530 100%
+  ) !important;
+  border-bottom: 3px solid #111a22 !important;
+  box-shadow: 0 3px 16px rgba(0,0,0,0.30) !important;
+}
+
+/* ── 2. Linha âmbar que se expande — como sublinhado de caneta ── */
+@keyframes tintaLine {
+  from { width: 0; opacity: 0.6; }
+  to   { width: 100%; opacity: 1; }
+}
+
+body.style-tintaepapel .site-header::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, #8B5E1A, #c49a3c, #8B5E1A);
+  animation: tintaLine 1.2s ease forwards;
+  margin-top: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-tintaepapel .site-header::after {
+    animation: none !important;
+    width: 100% !important;
+  }
+}
+
+/* ── 3. Menu hover com mancha de tinta ── */
+body.style-tintaepapel .primary-nav .menu a {
+  position: relative !important;
+  overflow: hidden !important;
+  transition: color 0.30s ease !important;
+}
+
+body.style-tintaepapel .primary-nav .menu a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: rgba(139,94,26,0.14);
+  transition: height 0.30s ease;
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+}
+
+body.style-tintaepapel .primary-nav .menu a:hover::before {
+  height: 100%;
+}
+
+body.style-tintaepapel .primary-nav .menu a:hover {
+  color: #c49a3c !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-tintaepapel .primary-nav .menu a::before {
+    display: none !important;
+  }
+}
+
+/* ── 4. Títulos com entrada de manuscrito ── */
+@keyframes tintaEscreve {
+  0%   { opacity: 0; transform: translateY(10px); filter: blur(2px); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+body.style-tintaepapel .entry-title,
+body.style-tintaepapel .post-content h2,
+body.style-tintaepapel .page-content h2 {
+  animation: tintaEscreve 0.9s ease both !important;
+}
+
+body.style-tintaepapel .post-content h3,
+body.style-tintaepapel .page-content h3 {
+  animation: tintaEscreve 0.9s ease 0.15s both !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-tintaepapel .entry-title,
+  body.style-tintaepapel .post-content h2,
+  body.style-tintaepapel .post-content h3,
+  body.style-tintaepapel .page-content h2,
+  body.style-tintaepapel .page-content h3 {
+    animation: none !important;
+  }
+}
+
+/* ── 5. Blockquote com estilo de citação literária ── */
+body.style-tintaepapel .post-content blockquote,
+body.style-tintaepapel .page-content blockquote {
+  border-left: 5px solid #8B5E1A !important;
+  background: #e8e0d0 !important;
+  border-radius: 0 10px 10px 0 !important;
+  padding: 1.6rem 2rem !important;
+  font-style: italic !important;
+  font-family: Georgia, 'Times New Roman', serif !important;
+  font-size: 1.08rem !important;
+  line-height: 1.85 !important;
+  color: #2C1810 !important;
+  position: relative !important;
+  box-shadow: inset 0 0 0 1px rgba(139,94,26,0.12),
+              0 2px 12px rgba(0,0,0,0.08) !important;
+}
+
+body.style-tintaepapel .post-content blockquote::before,
+body.style-tintaepapel .page-content blockquote::before {
+  content: '"';
+  position: absolute;
+  top: -12px;
+  left: 14px;
+  font-size: 5rem;
+  color: rgba(139,94,26,0.18);
+  font-family: Georgia, serif;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* ── 6. Textura sutil de papel pautado no conteúdo ── */
+body.style-tintaepapel main {
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 27px,
+    rgba(139,94,26,0.05) 28px
+  ) !important;
+  background-size: 100% 28px !important;
+}
+
+/* ── 7. Widgets com borda âmbar no topo ── */
+body.style-tintaepapel .widget {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(139,94,26,0.18) !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
+}
+
+body.style-tintaepapel .widget::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #8B5E1A, #c49a3c, transparent);
+  pointer-events: none;
+}
+
+body.style-tintaepapel .widget h3,
+body.style-tintaepapel .widget h2 {
+  border-bottom: 2px solid #8B5E1A !important;
+  padding-bottom: 8px !important;
+  font-family: Georgia, serif !important;
+  color: #2C3E50 !important;
+  -webkit-text-fill-color: #2C3E50 !important;
+}
+
+/* ── Links com sublinhado âmbar animado ── */
+body.style-tintaepapel .post-content a,
+body.style-tintaepapel .page-content a {
+  color: #7a3e10 !important;
+  text-decoration: none !important;
+  background-image: linear-gradient(#8B5E1A, #8B5E1A) !important;
+  background-size: 0% 1px !important;
+  background-repeat: no-repeat !important;
+  background-position: left bottom !important;
+  transition: background-size 0.4s ease, color 0.2s ease !important;
+  padding-bottom: 1px !important;
+}
+
+body.style-tintaepapel .post-content a:hover,
+body.style-tintaepapel .page-content a:hover {
+  color: #5a2e08 !important;
+  background-size: 100% 1px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-tintaepapel .post-content a,
+  body.style-tintaepapel .page-content a {
+    text-decoration: underline !important;
+    background-image: none !important;
+  }
+}
+
+/* ── Botões hover com elegância editorial ── */
+body.style-tintaepapel .header-search-form .search-submit:hover {
+  background: #6b3a0f !important;
+  box-shadow: 0 3px 12px rgba(139,94,26,0.30) !important;
+  transform: translateY(-1px) !important;
+}
+
+body.style-tintaepapel .read-more:hover {
+  background: #6b3a0f !important;
+  box-shadow: 0 3px 12px rgba(139,94,26,0.30) !important;
+  transform: translateY(-2px) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-tintaepapel .header-search-form .search-submit:hover,
+  body.style-tintaepapel .read-more:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* ==========================================================
+   Padrão — Refinamentos Visuais v2
+   Elegante e universal — como um terno bem cortado
+   ========================================================== */
+
+/* ── 1. Header com profundidade de céu ao entardecer ── */
+body.style-default .site-header {
+  background: linear-gradient(
+    180deg,
+    #273046 0%,
+    #1a2235 100%
+  ) !important;
+  border-bottom: 3px solid #111827 !important;
+  box-shadow: 0 3px 16px rgba(0,0,0,0.25) !important;
+}
+
+/* ── 2. Linha dourada que se expande ao carregar ── */
+@keyframes defaultLine {
+  from { width: 0; opacity: 0.7; }
+  to   { width: 100%; opacity: 1; }
+}
+
+body.style-default .site-header::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, #F6AD55, #f0c070, #F6AD55);
+  animation: defaultLine 1.0s ease forwards;
+  margin-top: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-default .site-header::after {
+    animation: none !important;
+    width: 100% !important;
+  }
+}
+
+/* ── 3. Menu hover refinado ── */
+body.style-default .primary-nav .menu a {
+  position: relative !important;
+  overflow: hidden !important;
+  transition: color 0.25s ease !important;
+}
+
+body.style-default .primary-nav .menu a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: rgba(246,173,85,0.14);
+  transition: height 0.25s ease;
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+}
+
+body.style-default .primary-nav .menu a:hover::before {
+  height: 100%;
+}
+
+body.style-default .primary-nav .menu a:hover {
+  color: #F6AD55 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-default .primary-nav .menu a::before {
+    display: none !important;
+  }
+}
+
+/* ── 4. Títulos com entrada elegante e universal ── */
+@keyframes defaultFade {
+  0%   { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+body.style-default .entry-title,
+body.style-default .post-content h2,
+body.style-default .page-content h2 {
+  animation: defaultFade 0.7s ease both !important;
+}
+
+body.style-default .post-content h3,
+body.style-default .page-content h3 {
+  animation: defaultFade 0.7s ease 0.1s both !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-default .entry-title,
+  body.style-default .post-content h2,
+  body.style-default .post-content h3,
+  body.style-default .page-content h2,
+  body.style-default .page-content h3 {
+    animation: none !important;
+  }
+}
+
+/* ── 5. Blockquote com destaque dourado ── */
+body.style-default .post-content blockquote,
+body.style-default .page-content blockquote {
+  border-left: 4px solid #F6AD55 !important;
+  background: linear-gradient(
+    135deg,
+    rgba(246,173,85,0.06) 0%,
+    rgba(39,48,70,0.04) 100%
+  ) !important;
+  border-radius: 0 12px 12px 0 !important;
+  padding: 1.4rem 1.8rem !important;
+  font-style: italic !important;
+  font-size: 1.05rem !important;
+  line-height: 1.80 !important;
+  color: #1e2532 !important;
+  position: relative !important;
+  box-shadow: 0 2px 12px rgba(246,173,85,0.10) !important;
+}
+
+body.style-default .post-content blockquote::before,
+body.style-default .page-content blockquote::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 14px;
+  font-size: 4rem;
+  color: rgba(246,173,85,0.22);
+  font-family: Georgia, serif;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* ── 6. Widgets com linha dourada no topo ── */
+body.style-default .widget {
+  position: relative;
+  overflow: hidden;
+}
+
+body.style-default .widget::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #F6AD55, #f0c070, transparent);
+  pointer-events: none;
+}
+
+body.style-default .widget h3,
+body.style-default .widget h2 {
+  border-bottom: 2px solid #F6AD55 !important;
+  padding-bottom: 8px !important;
+}
+
+/* ── 7. Links com sublinhado dourado animado ── */
+body.style-default .post-content a,
+body.style-default .page-content a {
+  color: #2B6CB0 !important;
+  text-decoration: none !important;
+  background-image: linear-gradient(#F6AD55, #F6AD55) !important;
+  background-size: 0% 1px !important;
+  background-repeat: no-repeat !important;
+  background-position: left bottom !important;
+  transition: background-size 0.35s ease, color 0.2s ease !important;
+  padding-bottom: 1px !important;
+}
+
+body.style-default .post-content a:hover,
+body.style-default .page-content a:hover {
+  color: #1a3a6b !important;
+  background-size: 100% 1px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-default .post-content a,
+  body.style-default .page-content a {
+    text-decoration: underline !important;
+    background-image: none !important;
+  }
+}
+
+/* ── Botões hover elegantes ── */
+body.style-default .header-search-form .search-submit:hover {
+  background: #d4891a !important;
+  box-shadow: 0 3px 14px rgba(246,173,85,0.35) !important;
+  transform: translateY(-1px) !important;
+}
+
+body.style-default .read-more:hover {
+  background: #d4891a !important;
+  box-shadow: 0 3px 14px rgba(246,173,85,0.35) !important;
+  transform: translateY(-2px) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-default .header-search-form .search-submit:hover,
+  body.style-default .read-more:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* ==========================================================
+   Moderno — Refinamentos Visuais v2
+   Futurista, imersivo e elétrico — com controle
+   ========================================================== */
+
+/* ── 1. Header com nebulosa animada ── */
+@keyframes modernoNebula {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body.style-moderno .site-header {
+  background: linear-gradient(
+    135deg,
+    #0f0c29 0%,
+    #1a0a3e 25%,
+    #0d1b3e 50%,
+    #1a0a3e 75%,
+    #0f0c29 100%
+  ) !important;
+  background-size: 300% 300% !important;
+  animation: modernoNebula 10s ease infinite,
+             fadeInDown 0.45s ease both !important;
+  border-bottom: 1px solid rgba(0,245,212,0.25) !important;
+  box-shadow: 0 4px 30px rgba(0,245,212,0.08) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-moderno .site-header {
+    animation: none !important;
+    background-size: 100% 100% !important;
+  }
+}
+
+/* ── 2. Linha ciano pulsante — circuito elétrico ── */
+@keyframes modernoPulse {
+  0%, 100% { opacity: 0.4; box-shadow: 0 0 4px rgba(0,245,212,0.3); }
+  50%       { opacity: 1.0; box-shadow: 0 0 12px rgba(0,245,212,0.8); }
+}
+
+body.style-moderno .site-header::after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg,
+    transparent,
+    #00f5d4,
+    rgba(199,125,255,0.8),
+    #00f5d4,
+    transparent
+  );
+  animation: modernoPulse 2.5s ease-in-out infinite;
+  margin-top: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-moderno .site-header::after {
+    animation: none !important;
+    opacity: 0.6;
+  }
+}
+
+/* ── 3. Menu hover com brilho elétrico ── */
+body.style-moderno .primary-nav .menu a {
+  position: relative !important;
+  overflow: hidden !important;
+  transition: color 0.22s ease, text-shadow 0.22s ease !important;
+}
+
+body.style-moderno .primary-nav .menu a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: rgba(0,245,212,0.10);
+  transition: height 0.22s ease;
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+}
+
+body.style-moderno .primary-nav .menu a:hover::before {
+  height: 100%;
+}
+
+body.style-moderno .primary-nav .menu a:hover {
+  color: #00f5d4 !important;
+  text-shadow: 0 0 12px rgba(0,245,212,0.50) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-moderno .primary-nav .menu a::before {
+    display: none !important;
+  }
+  body.style-moderno .primary-nav .menu a:hover {
+    text-shadow: none !important;
+  }
+}
+
+/* ── 4. Títulos com entrada de holograma ── */
+@keyframes modernoHolo {
+  0%   { opacity: 0; transform: translateY(14px);
+         text-shadow: 0 0 30px rgba(0,245,212,0.8); }
+  60%  { text-shadow: 0 0 15px rgba(0,245,212,0.3); }
+  100% { opacity: 1; transform: translateY(0);
+         text-shadow: none; }
+}
+
+body.style-moderno .entry-title,
+body.style-moderno .post-content h2,
+body.style-moderno .page-content h2 {
+  animation: modernoHolo 0.8s ease both !important;
+}
+
+body.style-moderno .post-content h3,
+body.style-moderno .page-content h3 {
+  animation: modernoHolo 0.8s ease 0.12s both !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-moderno .entry-title,
+  body.style-moderno .post-content h2,
+  body.style-moderno .post-content h3,
+  body.style-moderno .page-content h2,
+  body.style-moderno .page-content h3 {
+    animation: none !important;
+  }
+}
+
+/* ── 5. Blockquote com vidro iluminado ── */
+body.style-moderno .post-content blockquote,
+body.style-moderno .page-content blockquote {
+  border-left: 3px solid #00f5d4 !important;
+  background: rgba(0,245,212,0.05) !important;
+  backdrop-filter: blur(8px) !important;
+  border-radius: 0 12px 12px 0 !important;
+  padding: 1.4rem 1.8rem !important;
+  font-style: italic !important;
+  font-size: 1.05rem !important;
+  line-height: 1.80 !important;
+  color: #f0eeff !important;
+  position: relative !important;
+  box-shadow: 0 0 20px rgba(0,245,212,0.08),
+              inset 0 0 0 1px rgba(0,245,212,0.12) !important;
+}
+
+body.style-moderno .post-content blockquote::before,
+body.style-moderno .page-content blockquote::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 14px;
+  font-size: 4rem;
+  color: rgba(0,245,212,0.20);
+  font-family: Georgia, serif;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* ── 6. Widgets com borda luminosa pulsante ── */
+@keyframes modernoWidgetGlow {
+  0%, 100% { box-shadow: 0 4px 20px rgba(0,0,0,0.30),
+                         0 0 0 1px rgba(199,125,255,0.15); }
+  50%       { box-shadow: 0 4px 24px rgba(0,0,0,0.40),
+                         0 0 0 1px rgba(0,245,212,0.25); }
+}
+
+body.style-moderno .widget {
+  animation: modernoWidgetGlow 4s ease-in-out infinite !important;
+  position: relative;
+  overflow: hidden;
+}
+
+body.style-moderno .widget::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    #00f5d4,
+    rgba(199,125,255,0.8),
+    transparent
+  );
+  animation: modernoPulse 2.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+body.style-moderno .widget h3,
+body.style-moderno .widget h2 {
+  border-bottom: 1px solid rgba(0,245,212,0.30) !important;
+  padding-bottom: 8px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-moderno .widget {
+    animation: none !important;
+  }
+  body.style-moderno .widget::before {
+    animation: none !important;
+    opacity: 0.5;
+  }
+}
+
+/* ── 7. Links com sublinhado laser ciano ── */
+body.style-moderno .post-content a,
+body.style-moderno .page-content a {
+  color: #c77dff !important;
+  text-decoration: none !important;
+  background-image: linear-gradient(#00f5d4, #00f5d4) !important;
+  background-size: 0% 1px !important;
+  background-repeat: no-repeat !important;
+  background-position: left bottom !important;
+  transition: background-size 0.25s ease, color 0.2s ease !important;
+  padding-bottom: 1px !important;
+}
+
+body.style-moderno .post-content a:hover,
+body.style-moderno .page-content a:hover {
+  color: #00f5d4 !important;
+  background-size: 100% 1px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-moderno .post-content a,
+  body.style-moderno .page-content a {
+    text-decoration: underline !important;
+    background-image: none !important;
+  }
+}
+
+/* ── Botões hover com glow ciano ── */
+body.style-moderno .header-search-form .search-submit:hover {
+  background: #00c4a8 !important;
+  box-shadow: 0 4px 20px rgba(0,245,212,0.40) !important;
+  transform: translateY(-1px) !important;
+}
+
+body.style-moderno .read-more:hover {
+  background: #00c4a8 !important;
+  box-shadow: 0 4px 20px rgba(0,245,212,0.40) !important;
+  transform: translateY(-2px) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-moderno .header-search-form .search-submit:hover,
+  body.style-moderno .read-more:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* ==========================================================
+   Neon Pop — Refinamentos Visuais v2
+   Energia elétrica, néon e vida — com controle
+   ========================================================== */
+
+/* ── 1. Header com gradiente neon animado ── */
+@keyframes neonPopGradient {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body.style-neonpop .site-header {
+  background: linear-gradient(
+    135deg,
+    #0a0818 0%,
+    #1a0a2e 25%,
+    #0d0520 50%,
+    #1a0a2e 75%,
+    #0a0818 100%
+  ) !important;
+  background-size: 300% 300% !important;
+  animation: neonPopGradient 8s ease infinite !important;
+  border-bottom: 1px solid rgba(255,45,120,0.30) !important;
+  box-shadow: 0 4px 30px rgba(255,45,120,0.10) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-neonpop .site-header {
+    animation: none !important;
+    background-size: 100% 100% !important;
+  }
+}
+
+/* ── 2. Linha magenta/ciano pulsante ── */
+@keyframes neonPulse {
+  0%, 100% {
+    opacity: 0.5;
+    box-shadow: 0 0 6px rgba(255,45,120,0.5);
+    background: linear-gradient(90deg, transparent, #ff2d78, transparent);
+  }
+  50% {
+    opacity: 1.0;
+    box-shadow: 0 0 14px rgba(0,207,255,0.7);
+    background: linear-gradient(90deg, transparent, #00cfff, transparent);
+  }
+}
+
+body.style-neonpop .site-header::after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 100%;
+  animation: neonPulse 2s ease-in-out infinite;
+  margin-top: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-neonpop .site-header::after {
+    animation: none !important;
+    background: linear-gradient(90deg, transparent, #ff2d78, transparent) !important;
+    opacity: 0.6;
+  }
+}
+
+/* ── 3. Menu hover com néon acendendo ── */
+body.style-neonpop .primary-nav .menu a {
+  position: relative !important;
+  overflow: hidden !important;
+  transition: color 0.22s ease, text-shadow 0.22s ease !important;
+}
+
+body.style-neonpop .primary-nav .menu a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: rgba(255,45,120,0.12);
+  transition: height 0.22s ease;
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+}
+
+body.style-neonpop .primary-nav .menu a:hover::before {
+  height: 100%;
+}
+
+body.style-neonpop .primary-nav .menu a:hover {
+  color: #ff2d78 !important;
+  text-shadow: 0 0 10px rgba(255,45,120,0.60) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-neonpop .primary-nav .menu a::before {
+    display: none !important;
+  }
+  body.style-neonpop .primary-nav .menu a:hover {
+    text-shadow: none !important;
+  }
+}
+
+/* ── 4. Títulos com entrada de display LED ── */
+@keyframes neonLED {
+  0%   { opacity: 0; transform: translateY(14px);
+         text-shadow: 0 0 30px rgba(255,45,120,0.9); }
+  60%  { text-shadow: 0 0 12px rgba(255,45,120,0.3); }
+  100% { opacity: 1; transform: translateY(0);
+         text-shadow: none; }
+}
+
+body.style-neonpop .entry-title,
+body.style-neonpop .post-content h2,
+body.style-neonpop .page-content h2 {
+  animation: neonLED 0.7s ease both !important;
+}
+
+body.style-neonpop .post-content h3,
+body.style-neonpop .page-content h3 {
+  animation: neonLED 0.7s ease 0.10s both !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-neonpop .entry-title,
+  body.style-neonpop .post-content h2,
+  body.style-neonpop .post-content h3,
+  body.style-neonpop .page-content h2,
+  body.style-neonpop .page-content h3 {
+    animation: none !important;
+  }
+}
+
+/* ── 5. Blockquote com néon ── */
+body.style-neonpop .post-content blockquote,
+body.style-neonpop .page-content blockquote {
+  border-left: 3px solid #ff2d78 !important;
+  background: rgba(255,45,120,0.06) !important;
+  backdrop-filter: blur(8px) !important;
+  border-radius: 0 12px 12px 0 !important;
+  padding: 1.4rem 1.8rem !important;
+  font-style: italic !important;
+  font-size: 1.05rem !important;
+  line-height: 1.80 !important;
+  color: #f0eeff !important;
+  position: relative !important;
+  box-shadow: 0 0 20px rgba(255,45,120,0.08),
+              inset 0 0 0 1px rgba(255,45,120,0.15) !important;
+}
+
+body.style-neonpop .post-content blockquote::before,
+body.style-neonpop .page-content blockquote::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 14px;
+  font-size: 4rem;
+  color: rgba(255,45,120,0.22);
+  font-family: Georgia, serif;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* ── 6. Widgets com borda magenta/ciano pulsante ── */
+@keyframes neonWidgetGlow {
+  0%, 100% { box-shadow: 0 4px 20px rgba(0,0,0,0.40),
+                         0 0 0 1px rgba(255,45,120,0.20); }
+  50%       { box-shadow: 0 4px 24px rgba(0,0,0,0.50),
+                         0 0 0 1px rgba(0,207,255,0.25); }
+}
+
+body.style-neonpop .widget {
+  animation: neonWidgetGlow 3s ease-in-out infinite !important;
+  position: relative;
+  overflow: hidden;
+}
+
+body.style-neonpop .widget::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  height: 1px;
+  animation: neonPulse 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+body.style-neonpop .widget h3,
+body.style-neonpop .widget h2 {
+  border-bottom: 1px solid rgba(255,45,120,0.35) !important;
+  padding-bottom: 8px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-neonpop .widget {
+    animation: none !important;
+  }
+  body.style-neonpop .widget::before {
+    animation: none !important;
+    opacity: 0.5;
+  }
+}
+
+/* ── 7. Links com sublinhado ciano rápido ── */
+body.style-neonpop .post-content a,
+body.style-neonpop .page-content a {
+  color: #00cfff !important;
+  text-decoration: none !important;
+  background-image: linear-gradient(#ff2d78, #ff2d78) !important;
+  background-size: 0% 1px !important;
+  background-repeat: no-repeat !important;
+  background-position: left bottom !important;
+  transition: background-size 0.20s ease, color 0.2s ease !important;
+  padding-bottom: 1px !important;
+}
+
+body.style-neonpop .post-content a:hover,
+body.style-neonpop .page-content a:hover {
+  color: #ff2d78 !important;
+  background-size: 100% 1px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-neonpop .post-content a,
+  body.style-neonpop .page-content a {
+    text-decoration: underline !important;
+    background-image: none !important;
+  }
+}
+
+/* ── Botões hover com glow magenta ── */
+body.style-neonpop .header-search-form .search-submit:hover {
+  background: #d4165e !important;
+  box-shadow: 0 4px 20px rgba(255,45,120,0.50) !important;
+  transform: translateY(-1px) !important;
+}
+
+body.style-neonpop .read-more:hover {
+  background: #d4165e !important;
+  box-shadow: 0 4px 20px rgba(255,45,120,0.50) !important;
+  transform: translateY(-2px) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-neonpop .header-search-form .search-submit:hover,
+  body.style-neonpop .read-more:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* ==========================================================
+   Vintage Café — Refinamentos Visuais v2
+   Retrô, aconchegante e nostálgico — como jazz num café antigo
+   ========================================================== */
+
+/* ── 1. Header com profundidade de madeira escura ── */
+body.style-vintagecafe .site-header {
+  background: linear-gradient(
+    180deg,
+    #2e1a0e 0%,
+    #1e0f06 100%
+  ) !important;
+  border-bottom: 3px solid #120906 !important;
+  box-shadow: 0 3px 16px rgba(0,0,0,0.40) !important;
+}
+
+/* ── 2. Linha âmbar dourada que se expande — como fita cassete ── */
+@keyframes vintageReveal {
+  from { width: 0; opacity: 0.5; }
+  to   { width: 100%; opacity: 1; }
+}
+
+body.style-vintagecafe .site-header::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, #c9922a, #f0c060, #c9922a);
+  animation: vintageReveal 1.4s ease forwards;
+  margin-top: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-vintagecafe .site-header::after {
+    animation: none !important;
+    width: 100% !important;
+  }
+}
+
+/* ── 3. Menu hover com calor dourado ── */
+body.style-vintagecafe .primary-nav .menu a {
+  position: relative !important;
+  overflow: hidden !important;
+  transition: color 0.30s ease !important;
+}
+
+body.style-vintagecafe .primary-nav .menu a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: rgba(201,146,42,0.15);
+  transition: height 0.30s ease;
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+}
+
+body.style-vintagecafe .primary-nav .menu a:hover::before {
+  height: 100%;
+}
+
+body.style-vintagecafe .primary-nav .menu a:hover {
+  color: #f0c060 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-vintagecafe .primary-nav .menu a::before {
+    display: none !important;
+  }
+}
+
+/* ── 4. Títulos com entrada suave — como rádio de válvulas aquecendo ── */
+@keyframes vintageWarmUp {
+  0%   { opacity: 0; transform: translateY(10px);
+         filter: sepia(1) brightness(0.6); }
+  60%  { filter: sepia(0.3) brightness(0.9); }
+  100% { opacity: 1; transform: translateY(0);
+         filter: sepia(0) brightness(1); }
+}
+
+body.style-vintagecafe .entry-title,
+body.style-vintagecafe .post-content h2,
+body.style-vintagecafe .page-content h2 {
+  animation: vintageWarmUp 0.9s ease both !important;
+}
+
+body.style-vintagecafe .post-content h3,
+body.style-vintagecafe .page-content h3 {
+  animation: vintageWarmUp 0.9s ease 0.15s both !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-vintagecafe .entry-title,
+  body.style-vintagecafe .post-content h2,
+  body.style-vintagecafe .post-content h3,
+  body.style-vintagecafe .page-content h2,
+  body.style-vintagecafe .page-content h3 {
+    animation: none !important;
+  }
+}
+
+/* ── 5. Blockquote com estilo de cardápio vintage ── */
+body.style-vintagecafe .post-content blockquote,
+body.style-vintagecafe .page-content blockquote {
+  border-left: 5px solid #c9922a !important;
+  background: #ede4d0 !important;
+  border-radius: 0 10px 10px 0 !important;
+  padding: 1.6rem 2rem !important;
+  font-style: italic !important;
+  font-family: Georgia, 'Times New Roman', serif !important;
+  font-size: 1.08rem !important;
+  line-height: 1.85 !important;
+  color: #2e1a0e !important;
+  position: relative !important;
+  box-shadow: inset 0 0 0 1px rgba(201,146,42,0.15),
+              0 2px 14px rgba(0,0,0,0.10) !important;
+}
+
+body.style-vintagecafe .post-content blockquote::before,
+body.style-vintagecafe .page-content blockquote::before {
+  content: '"';
+  position: absolute;
+  top: -12px;
+  left: 14px;
+  font-size: 5rem;
+  color: rgba(201,146,42,0.20);
+  font-family: Georgia, serif;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* ── 6. Widgets com borda dourada vintage ── */
+body.style-vintagecafe .widget {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(201,146,42,0.20) !important;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.10) !important;
+}
+
+body.style-vintagecafe .widget::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #c9922a, #f0c060, transparent);
+  pointer-events: none;
+}
+
+body.style-vintagecafe .widget h3,
+body.style-vintagecafe .widget h2 {
+  border-bottom: 2px solid #c9922a !important;
+  padding-bottom: 8px !important;
+  font-family: Georgia, serif !important;
+  color: #2e1a0e !important;
+  -webkit-text-fill-color: #2e1a0e !important;
+}
+
+/* ── 7. Links com sublinhado dourado suave ── */
+body.style-vintagecafe .post-content a,
+body.style-vintagecafe .page-content a {
+  color: #8B4513 !important;
+  text-decoration: none !important;
+  background-image: linear-gradient(#c9922a, #c9922a) !important;
+  background-size: 0% 1px !important;
+  background-repeat: no-repeat !important;
+  background-position: left bottom !important;
+  transition: background-size 0.40s ease, color 0.2s ease !important;
+  padding-bottom: 1px !important;
+}
+
+body.style-vintagecafe .post-content a:hover,
+body.style-vintagecafe .page-content a:hover {
+  color: #5a2e08 !important;
+  background-size: 100% 1px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-vintagecafe .post-content a,
+  body.style-vintagecafe .page-content a {
+    text-decoration: underline !important;
+    background-image: none !important;
+  }
+}
+
+/* ── Botões hover com calor dourado ── */
+body.style-vintagecafe .header-search-form .search-submit:hover {
+  background: #a87020 !important;
+  box-shadow: 0 3px 14px rgba(201,146,42,0.35) !important;
+  transform: translateY(-1px) !important;
+}
+
+body.style-vintagecafe .read-more:hover {
+  background: #a87020 !important;
+  box-shadow: 0 3px 14px rgba(201,146,42,0.35) !important;
+  transform: translateY(-2px) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.style-vintagecafe .header-search-form .search-submit:hover,
+  body.style-vintagecafe .read-more:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* ── Textura sutil de papel vintage no conteúdo ── */
+body.style-vintagecafe main {
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 27px,
+    rgba(201,146,42,0.04) 28px
+  ) !important;
+  background-size: 100% 28px !important;
+}

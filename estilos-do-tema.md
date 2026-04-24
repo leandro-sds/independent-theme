@@ -1,24 +1,31 @@
 # Estilos Visuais — Independent Theme
 
-Cada estilo foi projetado com identidade própria, mantendo o mesmo layout,
-acessibilidade e funcionalidades. A troca é feita em:
+Cada estilo foi projetado com identidade própria, animações exclusivas e personalidade visual
+única — mantendo o mesmo layout, acessibilidade e funcionalidades. A troca é feita em:
 
 **Aparência → Personalizar → Estilo Visual**
 
 A mudança é instantânea e preserva todo o conteúdo, menus, widgets e configurações.
-Só muda a identidade visual.
+Só mudam as cores, as animações e a identidade visual.
+
+Todas as animações respeitam automaticamente a preferência do usuário por movimento reduzido
+(`prefers-reduced-motion`). Quem prefere sem animações, navega sem elas.
 
 ---
 
 ## ⬜ Padrão
 
-**Ideal para:** sites institucionais, projetos sem identidade visual definida ainda.
+**Ideal para:** sites institucionais, projetos sem identidade visual definida, qualquer tipo de site.
 
-- Header azul-petróleo escuro, fundo azul clarinho na área de conteúdo
+- Header azul-petróleo com gradiente sutil — profundidade elegante como céu ao entardecer
+- Linha dourada que se expande ao carregar — assinatura discreta e sofisticada
+- Menu hover com fundo dourado transparente subindo suavemente
+- Títulos com entrada suave e limpa — fadeIn universal
+- Blockquote com borda dourada, fundo azul levíssimo e aspas decorativas douradas
+- Widgets com linha dourada gradiente no topo
+- Links com sublinhado dourado que se expande da esquerda para a direita
 - Fonte Inter — neutra e versátil
-- Dourado nos destaques, botões e títulos de widgets
-- Visual limpo, profissional e confiável
-- Serve como ponto de partida para qualquer tipo de projeto
+- Visual de terno bem cortado — elegante para qualquer ocasião
 
 ---
 
@@ -26,25 +33,32 @@ Só muda a identidade visual.
 
 **Ideal para:** rádios jovens, podcasts, música eletrônica, DJs, streamers, entretenimento digital.
 
-- Fundo roxo-escuro quase preto com magenta neon (#ff2d78) como destaque principal
-- Ciano elétrico (#00cfff) nos links e detalhes
-- Fonte Montserrat bold nos títulos — impacto e energia
-- Header com gradiente escuro e brilho rosa neon
-- Botão buscar com gradiente magenta → ciano no hover
+- Header com gradiente roxo escuro animado — como luzes de clube pulsando
+- Linha que alterna entre magenta e ciano pulsando — painel de DJ
+- Menu hover com fundo magenta subindo e glow elétrico no texto
+- Títulos com entrada de display LED — brilho magenta que desaparece ao pousar
+- Blockquote com glassmorphism, borda magenta e glow, aspas magenta transparentes
+- Widgets que pulsam alternando entre magenta e ciano
+- Links ciano com sublinhado magenta que se expande em 0.20s — o mais rápido
+- Fonte Montserrat bold — impacto e energia
 - Visual de festival, show e rádio jovem
 
 ---
 
 ## 📻 Vintage Café — Rádio Retrô
 
-**Ideal para:** rádios retrô, música clássica, jazz, blues, saudosismo.
+**Ideal para:** rádios retrô, música clássica, jazz, blues, saudosismo, cafeterias.
 
-- Fundo creme claro (#f5efe6) — atmosfera de papel envelhecido
-- Conteúdo em branco quase puro, sidebar creme mais escuro
-- Header e rodapé marrom profundo (#2e1a0e)
-- Dourado âmbar nos destaques e botões
+- Header com gradiente marrom escuro — profundidade de madeira de café antigo
+- Linha âmbar dourada que se expande em 1.4s — como fita cassete sendo reproduzida
+- Menu hover com calor dourado subindo suavemente — aconchego
+- Títulos com entrada de rádio de válvulas aquecendo — sepia que dissolve ao revelar
+- Blockquote estilo cardápio vintage — fundo creme escuro, borda âmbar espessa, Georgia em itálico
+- Widgets com borda dourada e linha gradiente âmbar no topo
+- Textura sutil de papel vintage no fundo do conteúdo
+- Links com sublinhado dourado em 0.40s — o mais lento, como caneta traçando devagar
 - Fonte Georgia serifada — elegância analógica
-- Tipografia que remete ao rádio de válvulas e às livrarias antigas
+- Visual que remete ao rádio de válvulas e às livrarias antigas
 
 ---
 
@@ -52,12 +66,15 @@ Só muda a identidade visual.
 
 **Ideal para:** sites de futebol, esportes, clubes, torcidas organizadas, academias.
 
-- Fundo verde muito claro (#f0f7f1) — respira como gramado ao ar livre
-- Conteúdo em branco puro, sidebar verde claro
-- Header e rodapé verde escuro (#0d3318)
-- Vermelho vibrante (#cc0000) nos botões e destaques
+- Header verde escuro com gradiente — profundidade de estádio à noite
+- Linha vermelha que se expande em 0.7s — como apito de árbitro: o jogo começou
+- Menu hover com fundo vermelho subindo — torcida se levantando
+- Títulos com entrada de impacto — sobem, ultrapassam levemente e se encaixam (bola na trave)
+- Blockquote com borda vermelha espessa, fundo gradiente verde/vermelho, aspas vermelhas
+- Widgets com faixa vermelha gradiente no topo — faixa do time
+- Links com sublinhado vermelho que se expande em 0.30s
 - Fonte Montserrat bold — força e competição
-- Visual energético sem ser pesado
+- Visual energético de estádio cheio
 
 ---
 
@@ -65,13 +82,13 @@ Só muda a identidade visual.
 
 **Ideal para:** rádios gospel, igrejas, ministérios, sites de fé e espiritualidade.
 
-- Header com degradê azul profundo (#0d2b4a → #1a4a7a) — moderno e solene
-- Fundo azul céu clarinho (#eaf2fb) — respirado e acolhedor
-- Coral/laranja suave (#e07b39) nos botões, destaques e borda dos widgets
-- Fonte Poppins nos títulos — moderna e elegante
-- Fonte Inter no texto corrido — máxima legibilidade
-- Cards da sidebar com sombra suave e hierarquia clara
-- Versículos em destaque com borda coral e fundo azul suave
+- Header com degradê azul profundo animado — aurora que se move como luz passando pelo céu
+- Títulos com brilho coral suave ao entrar — como iluminados por uma chama que se apaga
+- Widgets com linha coral pulsante no topo — como coração batendo
+- Blockquote com destaque especial — gradiente coral/azul, borda coral espessa, aspas decorativas
+- Links com sublinhado coral que se expande suavemente
+- Botões com leve elevação e brilho no hover
+- Fonte Poppins nos títulos, Inter no texto corrido
 - Visual que transmite serenidade, fé e modernidade
 
 ---
@@ -80,28 +97,32 @@ Só muda a identidade visual.
 
 **Ideal para:** escritores, blogs literários, jornalismo, poesia, crônicas, revistas.
 
-- Fundo creme (#ede8dd) — sensação de papel
-- Conteúdo em quase branco (#fdfaf4) — foco total na leitura
-- Header e rodapé em marrom-acinzentado escuro (#2C3E50)
-- Marrom tinta (#8B4513) nos destaques e botões
+- Header com gradiente marrom-acinzentado — profundidade de couro de livro antigo
+- Linha âmbar que se expande em 1.2s — como caneta sublinhando devagar
+- Menu hover com mancha de tinta âmbar subindo — carimbo molhado
+- Títulos com entrada de manuscrito — leve desfoque que se resolve, como foto antiga ganhando foco
+- Blockquote estilo citação literária — creme escuro, borda âmbar espessa, Georgia em itálico, aspas 5rem
+- Textura sutil de papel pautado no fundo do conteúdo
+- Widgets com borda âmbar e títulos em Georgia
+- Links com sublinhado âmbar em 0.40s — como caneta traçando uma linha
 - Fonte Georgia serifada — máximo foco na leitura
-- Cantos sutis — design editorial clássico
-- Sem distrações visuais — o texto é o protagonista
+- Visual editorial clássico — o texto é o protagonista
 
 ---
 
 ## 🏛️ Marinelli Drupal — Institucional
 
-**Ideal para:** rádios, igrejas, prefeituras, associações, sites institucionais clássicos.
+**Ideal para:** rádios, igrejas, prefeituras, associações, portais de notícias, sites institucionais.
 
-- Fiel ao visual do lendário tema Marinelli do Drupal 7
-- Header e rodapé em azul-aço sólido (#054b81) com texto branco
-- Fundo branco no conteúdo, cinza claro na sidebar
-- Laranja (#f97e05) no hover do menu — assinatura inconfundível do Marinelli
-- Campo de busca azul com borda branca — idêntico ao original
+- Header com gradiente azul-aço → azul quase preto — solidez institucional
+- Linha laranja que se expande ao carregar — assinatura inconfundível do Marinelli
+- Menu hover com cortina laranja subindo — cortina de teatro abrindo
+- Títulos com entrada de carimbo — movimento sólido e preciso
+- Blockquote estilo editorial — borda laranja espessa, fundo acinzentado, Georgia em itálico
+- Widgets com linha laranja gradiente no topo e títulos com borda laranja
 - Fonte Helvetica Neue/Arial — tipografia institucional clássica
 - Menu em caixa alta — elegância formal
-- Visual sóbrio, confiável e com história
+- Visual de portal de notícias respeitável
 
 > *"Durante muito tempo, enquanto usava Drupal, o Marinelli foi o tema*
 > *da Rádio Maior Amor."* — Leandro Souza
@@ -113,18 +134,15 @@ Só muda a identidade visual.
 **Ideal para:** rádios jovens, podcasts, games, e-sports, startups, agências digitais,
 artistas, músicos, criadores de conteúdo, apps e produtos digitais.
 
-- Fundo roxo profundo quase preto com gradiente radial — atmosfera imersiva
-- Ciano elétrico (#00f5d4) como cor de destaque — vibrante e marcante
-- Violeta (#c77dff) nos links e detalhes — elegância futurista
-- Fonte Montserrat bold nos títulos — impacto e modernidade
-- Header com gradiente animado em loop suave
-- Nome do site com gradiente de texto colorido
-- Cards e widgets com efeito glassmorphism — vidro fosco com profundidade
-- Linha de brilho no topo dos widgets — acabamento premium
-- Listas com marcadores em ciano elétrico
-- Separadores com gradiente ciano → violeta
-- Botões com glow luminoso no hover
-- Para quem quer gritar: **"somos modernos, somos do futuro"**
+- Header com nebulosa animada — roxo/violeta se movem como galáxia (ciclo 10s)
+- Linha ciano que pulsa alternando com violeta — circuito eletrônico vivo
+- Menu hover com fundo ciano e text-shadow elétrico — néon acendendo
+- Títulos com entrada de holograma — brilho ciano intenso que some ao pousar
+- Blockquote com glassmorphism — borda ciano brilhante, fundo roxo translúcido
+- Widgets que pulsam entre bordas ciano e violeta — LED de equipamento eletrônico
+- Links violeta com sublinhado laser ciano em 0.25s — o mais preciso
+- Fonte Montserrat bold — impacto e modernidade
+- Para quem quer dizer: **"somos do futuro"**
 
 ---
 
@@ -144,9 +162,12 @@ artistas, músicos, criadores de conteúdo, apps e produtos digitais.
 
 | Configuração | Onde encontrar |
 |---|---|
-| Tamanho da logo | Identidade do Site |
+| Tamanho da logo (largura, altura, escala) | Identidade do Site |
 | Ano de fundação do projeto | Rodapé |
-| Redes sociais (WhatsApp, Facebook, Instagram, YouTube) | Redes Sociais |
+| WhatsApp (número com código do país) | Redes Sociais |
+| Facebook (nome de usuário) | Redes Sociais |
+| Instagram (nome de usuário) | Redes Sociais |
+| YouTube (nome do canal com ou sem @) | Redes Sociais |
 | Layout do cabeçalho | Identidade do Site |
 | Mostrar/ocultar busca no cabeçalho | Identidade do Site |
 
@@ -156,11 +177,11 @@ artistas, músicos, criadores de conteúdo, apps e produtos digitais.
 
 | Tipo de site | Estilo recomendado |
 |---|---|
-| Rádio gospel / Igreja | ✝️ Céu e Fé |
-| Site institucional clássico | 🏛️ Marinelli |
-| Rádio jovem / Podcast | 🎧 Neon Pop |
-| Música retrô / Jazz | 📻 Vintage Café |
-| Futebol / Esportes | ⚽ Campo e Paixão |
-| Blog / Literatura | ✍️ Tinta & Papel |
-| Startup / Tecnologia | ⚡ Moderno |
-| Qualquer site | ⬜ Padrão |
+| Rádio gospel / Igreja / Ministério | ✝️ Céu e Fé |
+| Site institucional / Portal de notícias | 🏛️ Marinelli |
+| Rádio jovem / Podcast / DJ | 🎧 Neon Pop |
+| Música retrô / Jazz / Café | 📻 Vintage Café |
+| Futebol / Esportes / Academia | ⚽ Campo e Paixão |
+| Blog / Literatura / Escritor | ✍️ Tinta & Papel |
+| Startup / Tecnologia / Games | ⚡ Moderno |
+| Qualquer tipo de site | ⬜ Padrão |

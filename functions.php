@@ -9,6 +9,105 @@ if ( ! defined( 'ABSPATH' ) ) {
   exit;
 }
 
+/**
+ * Atualização automática via GitHub
+ * Verifica releases no repositório e notifica o painel do WordPress
+ */
+function independent_theme_check_update( $transient ) {
+  if ( empty( $transient->checked ) ) {
+    return $transient;
+  }
+
+  $theme_slug    = 'independent-theme';
+  $github_user   = 'leandro-sds';
+  $github_repo   = 'independent-theme';
+  $current       = wp_get_theme( $theme_slug );
+  $current_ver   = $current->get( 'Version' );
+
+  // Consulta a API do GitHub
+  $api_url  = "https://api.github.com/repos/{$github_user}/{$github_repo}/releases/latest";
+  $response = wp_remote_get( $api_url, [
+    'timeout'    => 10,
+    'user-agent' => 'WordPress/' . get_bloginfo( 'version' ) . '; ' . get_bloginfo( 'url' ),
+  ] );
+
+  if ( is_wp_error( $response ) ) {
+    return $transient;
+  }
+
+  $data = json_decode( wp_remote_retrieve_body( $response ) );
+
+  if ( empty( $data->tag_name ) ) {
+    return $transient;
+  }
+
+  // Remove o 'v' inicial se existir (ex.: v2.7.0 → 2.7.0)
+  $latest_ver = ltrim( $data->tag_name, 'v' );
+
+  if ( version_compare( $current_ver, $latest_ver, '<' ) ) {
+    $zip_url = "https://github.com/{$github_user}/{$github_repo}/releases/download/{$data->tag_name}/independent-theme-{$latest_ver}.zip";
+
+    $transient->response[ $theme_slug ] = [
+      'theme'       => $theme_slug,
+      'new_version' => $latest_ver,
+      'url'         => "https://github.com/{$github_user}/{$github_repo}",
+      'package'     => $zip_url,
+      'requires'    => '6.0',
+      'requires_php'=> '7.4',
+    ];
+  }
+
+  return $transient;
+}
+add_filter( 'pre_set_site_transient_update_themes', 'independent_theme_check_update' );
+
+/**
+ * Exibe informações da versão mais recente na tela de detalhes do tema
+ */
+function independent_theme_update_details( $false, $action, $args ) {
+  if ( $action !== 'theme_information' ) {
+    return $false;
+  }
+  if ( ! isset( $args->slug ) || $args->slug !== 'independent-theme' ) {
+    return $false;
+  }
+
+  $api_url  = 'https://api.github.com/repos/leandro-sds/independent-theme/releases/latest';
+  $response = wp_remote_get( $api_url, [
+    'timeout'    => 10,
+    'user-agent' => 'WordPress/' . get_bloginfo( 'version' ) . '; ' . get_bloginfo( 'url' ),
+  ] );
+
+  if ( is_wp_error( $response ) ) {
+    return $false;
+  }
+
+  $data = json_decode( wp_remote_retrieve_body( $response ) );
+
+  if ( empty( $data->tag_name ) ) {
+    return $false;
+  }
+
+  $latest_ver = ltrim( $data->tag_name, 'v' );
+
+  return (object) [
+    'name'          => 'Independent Theme',
+    'slug'          => 'independent-theme',
+    'version'       => $latest_ver,
+    'author'        => 'Leandro Souza',
+    'homepage'      => 'https://github.com/leandro-sds/independent-theme',
+    'requires'      => '6.0',
+    'requires_php'  => '7.4',
+    'last_updated'  => $data->published_at ?? '',
+    'sections'      => [
+      'description' => $data->body ?? 'Tema WordPress acessível com 8 estilos visuais únicos.',
+    ],
+    'download_link' => "https://github.com/leandro-sds/independent-theme/releases/download/{$data->tag_name}/independent-theme-{$latest_ver}.zip",
+  ];
+}
+add_filter( 'themes_api', 'independent_theme_update_details', 10, 3 );
+
+
 
 
 
